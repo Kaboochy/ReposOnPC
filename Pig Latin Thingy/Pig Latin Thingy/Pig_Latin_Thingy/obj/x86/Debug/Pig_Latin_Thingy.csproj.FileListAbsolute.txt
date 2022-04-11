@@ -1,0 +1,21 @@
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\obj\x86\Debug\Pig_Latin_Thingy.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\obj\x86\Debug\Pig_Latin_Thingy.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Content\Pig 1.xnb
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Content\Pig 2.xnb
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Pig_Latin_Thingy.exe
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Pig_Latin_Thingy.pdb
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\obj\x86\Debug\Pig_Latin_Thingy.csproj.CopyComplete
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\obj\x86\Debug\Pig_Latin_Thingy.exe
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\obj\x86\Debug\Pig_Latin_Thingy.pdb
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_Thingy\bin\x86\Debug\Content\SpriteFont1.xnb

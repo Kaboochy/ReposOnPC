@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\StarField\StarField\StarFieldContent\obj\x86\Debug\StarFieldContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\StarField\StarField\StarFieldContent\obj\x86\Debug\StarFieldContent.contentproj.CoreCompileInputs.cache

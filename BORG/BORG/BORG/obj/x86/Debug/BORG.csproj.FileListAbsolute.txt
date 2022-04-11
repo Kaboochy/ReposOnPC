@@ -1,0 +1,33 @@
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Down.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Left.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Right.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Up.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Turret.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\cat1.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\BORG.exe
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\BORG.pdb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\BORG.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\BORG.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\BORG.csproj.CopyComplete
+C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\BORG.exe
+C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\BORG.pdb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\mouse1.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Explosion with Fragments.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\crossh.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\mouse2.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\BlueRectangle.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\GreenRectangle.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\BlackRectangle1.xnb
+C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\BlackRectangle2.xnb

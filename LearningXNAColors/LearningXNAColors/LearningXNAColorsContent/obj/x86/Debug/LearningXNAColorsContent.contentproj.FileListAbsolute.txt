@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\LearningXNAColors\LearningXNAColors\LearningXNAColorsContent\obj\x86\Debug\LearningXNAColorsContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\LearningXNAColors\LearningXNAColors\LearningXNAColorsContent\obj\x86\Debug\LearningXNAColorsContent.contentproj.CoreCompileInputs.cache

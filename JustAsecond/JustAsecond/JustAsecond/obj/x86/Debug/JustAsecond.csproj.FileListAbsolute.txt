@@ -1,0 +1,20 @@
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Content\Clock Face.xnb
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Content\Clock Hand.xnb
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\JustAsecond.exe
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\JustAsecond.pdb
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\obj\x86\Debug\JustAsecond.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\obj\x86\Debug\JustAsecond.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\obj\x86\Debug\JustAsecond.csproj.CopyComplete
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\obj\x86\Debug\JustAsecond.exe
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecond\obj\x86\Debug\JustAsecond.pdb

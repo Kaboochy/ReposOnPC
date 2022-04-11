@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\BORG\BORG\BORGContent\obj\x86\Debug\BORGContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\BORG\BORG\BORGContent\obj\x86\Debug\BORGContent.contentproj.CoreCompileInputs.cache

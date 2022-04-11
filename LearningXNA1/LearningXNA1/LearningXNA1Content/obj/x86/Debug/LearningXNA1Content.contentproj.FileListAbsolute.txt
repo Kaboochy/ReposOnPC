@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\LearningXNA1\LearningXNA1\LearningXNA1Content\obj\x86\Debug\LearningXNA1Content.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\LearningXNA1\LearningXNA1\LearningXNA1Content\obj\x86\Debug\LearningXNA1Content.contentproj.CoreCompileInputs.cache

@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Chess\Chess\ChessContent\obj\x86\Debug\ChessContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\Chess\Chess\ChessContent\obj\x86\Debug\ChessContent.contentproj.CoreCompileInputs.cache

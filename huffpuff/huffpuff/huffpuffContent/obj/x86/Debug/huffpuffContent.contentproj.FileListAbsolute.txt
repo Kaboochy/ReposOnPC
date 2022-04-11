@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\huffpuff\huffpuff\huffpuffContent\obj\x86\Debug\huffpuffContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\huffpuff\huffpuff\huffpuffContent\obj\x86\Debug\huffpuffContent.contentproj.CoreCompileInputs.cache

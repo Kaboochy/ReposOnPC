@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarField", "StarField\StarField\StarField.csproj", "{E47CABFF-7466-4912-8DBC-E25257D43A27}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "StarFieldContent", "StarField\StarFieldContent\StarFieldContent.contentproj", "{DC7B44CE-4072-4678-B4C2-B2C3A51A1E81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E47CABFF-7466-4912-8DBC-E25257D43A27}.Debug|x86.ActiveCfg = Debug|x86
+		{E47CABFF-7466-4912-8DBC-E25257D43A27}.Debug|x86.Build.0 = Debug|x86
+		{E47CABFF-7466-4912-8DBC-E25257D43A27}.Release|x86.ActiveCfg = Release|x86
+		{E47CABFF-7466-4912-8DBC-E25257D43A27}.Release|x86.Build.0 = Release|x86
+		{DC7B44CE-4072-4678-B4C2-B2C3A51A1E81}.Debug|x86.ActiveCfg = Debug|x86
+		{DC7B44CE-4072-4678-B4C2-B2C3A51A1E81}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAD00A2A-CABD-45A2-A526-E421EA4D0658}
+	EndGlobalSection
+EndGlobal

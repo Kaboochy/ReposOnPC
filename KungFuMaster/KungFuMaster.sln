@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KungFuMaster", "KungFuMaster\KungFuMaster\KungFuMaster.csproj", "{6DDD1AAD-70A5-4C14-A4C7-E3ED81B68AE6}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "KungFuMasterContent", "KungFuMaster\KungFuMasterContent\KungFuMasterContent.contentproj", "{250CE82E-DD08-496D-9AD8-1BF9DD6B3916}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DDD1AAD-70A5-4C14-A4C7-E3ED81B68AE6}.Debug|x86.ActiveCfg = Debug|x86
+		{6DDD1AAD-70A5-4C14-A4C7-E3ED81B68AE6}.Debug|x86.Build.0 = Debug|x86
+		{6DDD1AAD-70A5-4C14-A4C7-E3ED81B68AE6}.Release|x86.ActiveCfg = Release|x86
+		{6DDD1AAD-70A5-4C14-A4C7-E3ED81B68AE6}.Release|x86.Build.0 = Release|x86
+		{250CE82E-DD08-496D-9AD8-1BF9DD6B3916}.Debug|x86.ActiveCfg = Debug|x86
+		{250CE82E-DD08-496D-9AD8-1BF9DD6B3916}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0960F287-7D07-4E1A-A610-C473447A33E9}
+	EndGlobalSection
+EndGlobal

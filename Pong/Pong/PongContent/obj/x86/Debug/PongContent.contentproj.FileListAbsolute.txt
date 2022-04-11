@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Pong\Pong\PongContent\obj\x86\Debug\PongContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\Pong\Pong\PongContent\obj\x86\Debug\PongContent.contentproj.CoreCompileInputs.cache

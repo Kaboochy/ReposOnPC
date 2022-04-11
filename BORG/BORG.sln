@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BORG", "BORG\BORG\BORG.csproj", "{E227BEBF-FD87-49B1-9918-E706B6DF787B}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "BORGContent", "BORG\BORGContent\BORGContent.contentproj", "{D58E29D2-40A7-44DA-8C8F-659166A1D0B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E227BEBF-FD87-49B1-9918-E706B6DF787B}.Debug|x86.ActiveCfg = Debug|x86
+		{E227BEBF-FD87-49B1-9918-E706B6DF787B}.Debug|x86.Build.0 = Debug|x86
+		{E227BEBF-FD87-49B1-9918-E706B6DF787B}.Release|x86.ActiveCfg = Release|x86
+		{E227BEBF-FD87-49B1-9918-E706B6DF787B}.Release|x86.Build.0 = Release|x86
+		{D58E29D2-40A7-44DA-8C8F-659166A1D0B6}.Debug|x86.ActiveCfg = Debug|x86
+		{D58E29D2-40A7-44DA-8C8F-659166A1D0B6}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51E79130-5750-4B69-B87C-F24E23ADCECD}
+	EndGlobalSection
+EndGlobal

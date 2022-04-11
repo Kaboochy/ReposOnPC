@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecondContent\obj\x86\Debug\JustAsecondContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\JustAsecond\JustAsecond\JustAsecondContent\obj\x86\Debug\JustAsecondContent.contentproj.CoreCompileInputs.cache

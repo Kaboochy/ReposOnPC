@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Tube Down.png</Source>
+      <Name>Tube Down</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Down.xnb</Output>
+      <Time>2021-09-22T21:22:44.8722111-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tube Left.png</Source>
+      <Name>Tube Left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Left.xnb</Output>
+      <Time>2021-09-22T21:22:44.8931551-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tube Right.png</Source>
+      <Name>Tube Right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Right.xnb</Output>
+      <Time>2021-09-22T21:22:44.8951497-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tube Up.png</Source>
+      <Name>Tube Up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Tube Up.xnb</Output>
+      <Time>2021-09-22T21:22:44.8971445-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Turret.png</Source>
+      <Name>Turret</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Turret.xnb</Output>
+      <Time>2021-09-22T21:22:44.8991391-05:00</Time>
+    </Item>
+    <Item>
+      <Source>cat1.png</Source>
+      <Name>cat1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\cat1.xnb</Output>
+      <Time>2021-09-22T21:22:53.8510266-05:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2021-09-23T15:04:54.3090605-05:00</Time>
+    </Item>
+    <Item>
+      <Source>mouse1.png</Source>
+      <Name>mouse1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\mouse1.xnb</Output>
+      <Time>2021-09-23T15:58:35.695038-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Explosion with Fragments.png</Source>
+      <Name>Explosion with Fragments</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\Explosion with Fragments.xnb</Output>
+      <Time>2021-10-03T13:48:53.1128164-05:00</Time>
+    </Item>
+    <Item>
+      <Source>crossh.png</Source>
+      <Name>crossh</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\crossh.xnb</Output>
+      <Time>2021-10-03T13:50:18.1458472-05:00</Time>
+    </Item>
+    <Item>
+      <Source>mouse2.png</Source>
+      <Name>mouse2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\mouse2.xnb</Output>
+      <Time>2021-10-03T13:54:07.7933549-05:00</Time>
+    </Item>
+    <Item>
+      <Source>BlueRectangle.png</Source>
+      <Name>BlueRectangle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\BlueRectangle.xnb</Output>
+      <Time>2021-10-03T15:41:02.0439875-05:00</Time>
+    </Item>
+    <Item>
+      <Source>GreenRectangle.png</Source>
+      <Name>GreenRectangle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\GreenRectangle.xnb</Output>
+      <Time>2021-10-03T15:41:02.0459821-05:00</Time>
+    </Item>
+    <Item>
+      <Source>BlackRectangle1.png</Source>
+      <Name>BlackRectangle1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\BlackRectangle1.xnb</Output>
+      <Time>2021-10-03T15:50:46.8516781-05:00</Time>
+    </Item>
+    <Item>
+      <Source>BlackRectangle2.png</Source>
+      <Name>BlackRectangle2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\BlackRectangle2.xnb</Output>
+      <Time>2021-10-03T15:50:46.8536705-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{D58E29D2-40A7-44DA-8C8F-659166A1D0B6}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\victo\source\repos\BORG\BORG\BORGContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\victo\source\repos\BORG\BORG\BORG\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\victo\source\repos\BORG\BORG\BORG\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\victo\source\repos\BORG\BORG\BORG\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2021-08-22T13:38:26.0794093-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

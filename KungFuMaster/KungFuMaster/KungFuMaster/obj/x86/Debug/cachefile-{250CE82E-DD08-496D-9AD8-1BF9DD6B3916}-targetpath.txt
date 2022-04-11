@@ -1,0 +1,12 @@
+Content\enemy-spritesheet.xnb
+Content\sailor_spritesheet.xnb
+Content\sailor_spritesheetLeft.xnb
+Content\sidescroller.xnb
+Content\ThemeOfChunLi.xnb
+Content\pinkHeart.xnb
+Content\Left.xnb
+Content\Right.xnb
+Content\hitbox.xnb
+Content\gameOver.xnb
+Content\enemy-spritesheetL.xnb
+Content\enemy-spritesheetR.xnb

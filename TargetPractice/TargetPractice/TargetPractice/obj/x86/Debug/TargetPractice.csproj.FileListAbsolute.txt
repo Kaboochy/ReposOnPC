@@ -1,0 +1,22 @@
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\TargetPractice.exe
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\TargetPractice.pdb
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\obj\x86\Debug\TargetPractice.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\obj\x86\Debug\TargetPractice.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\obj\x86\Debug\TargetPractice.csproj.CopyComplete
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\obj\x86\Debug\TargetPractice.exe
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\obj\x86\Debug\TargetPractice.pdb
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Content\crossh (1).xnb
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Content\tank.xnb
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPractice\bin\x86\Debug\Content\White Square.xnb

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test\test.csproj", "{45B45BE3-971C-430D-BF01-A1316B7BAD10}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "testContent", "test\testContent\testContent.contentproj", "{CAA0B028-B2B3-4DBE-AF4E-39A5C7C9C4F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45B45BE3-971C-430D-BF01-A1316B7BAD10}.Debug|x86.ActiveCfg = Debug|x86
+		{45B45BE3-971C-430D-BF01-A1316B7BAD10}.Debug|x86.Build.0 = Debug|x86
+		{45B45BE3-971C-430D-BF01-A1316B7BAD10}.Release|x86.ActiveCfg = Release|x86
+		{45B45BE3-971C-430D-BF01-A1316B7BAD10}.Release|x86.Build.0 = Release|x86
+		{CAA0B028-B2B3-4DBE-AF4E-39A5C7C9C4F9}.Debug|x86.ActiveCfg = Debug|x86
+		{CAA0B028-B2B3-4DBE-AF4E-39A5C7C9C4F9}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC0225D8-CEF0-435A-AD2C-9A75707AC1E7}
+	EndGlobalSection
+EndGlobal

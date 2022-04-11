@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Castle Mania SHEEESH\Castle Mania SHEEESH\Castle_Mania_SHEEESHContent\obj\x86\Debug\Castle_Mania_SHEEESHContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\Castle Mania SHEEESH\Castle Mania SHEEESH\Castle_Mania_SHEEESHContent\obj\x86\Debug\Castle_Mania_SHEEESHContent.contentproj.CoreCompileInputs.cache

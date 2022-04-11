@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_ThingyContent\obj\x86\Debug\Pig_Latin_ThingyContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\Pig Latin Thingy\Pig Latin Thingy\Pig_Latin_ThingyContent\obj\x86\Debug\Pig_Latin_ThingyContent.contentproj.CoreCompileInputs.cache

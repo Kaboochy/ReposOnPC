@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Breakout\Breakout\BreakoutContent\obj\x86\Debug\BreakoutContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\Breakout\Breakout\BreakoutContent\obj\x86\Debug\BreakoutContent.contentproj.CoreCompileInputs.cache

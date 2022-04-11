@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPracticeContent\obj\x86\Debug\TargetPracticeContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\TargetPractice\TargetPractice\TargetPracticeContent\obj\x86\Debug\TargetPracticeContent.contentproj.CoreCompileInputs.cache

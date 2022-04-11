@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycleContent\obj\x86\Debug\LightCycleContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycleContent\obj\x86\Debug\LightCycleContent.contentproj.CoreCompileInputs.cache

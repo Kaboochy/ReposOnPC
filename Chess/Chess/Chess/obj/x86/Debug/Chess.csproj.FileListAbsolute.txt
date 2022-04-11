@@ -1,0 +1,34 @@
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black Bishop.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black Castle.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black King.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black Knight.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black Pawn.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black Queen.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Black Rook.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Board.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\Chess Board.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White Bishop.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White Castle.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White King.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White Knight.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White Pawn.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White Queen.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Content\White Rook.xnb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Chess.exe
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Chess.pdb
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\victo\source\repos\Chess\Chess\Chess\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\victo\source\repos\Chess\Chess\Chess\obj\x86\Debug\Chess.csprojAssemblyReference.cache
+C:\Users\victo\source\repos\Chess\Chess\Chess\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\victo\source\repos\Chess\Chess\Chess\obj\x86\Debug\Chess.csproj.CoreCompileInputs.cache
+C:\Users\victo\source\repos\Chess\Chess\Chess\obj\x86\Debug\Chess.csproj.CopyComplete
+C:\Users\victo\source\repos\Chess\Chess\Chess\obj\x86\Debug\Chess.exe
+C:\Users\victo\source\repos\Chess\Chess\Chess\obj\x86\Debug\Chess.pdb

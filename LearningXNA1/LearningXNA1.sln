@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningXNA1", "LearningXNA1\LearningXNA1\LearningXNA1.csproj", "{B751E6EB-4529-4840-B641-CB6032491F2A}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "LearningXNA1Content", "LearningXNA1\LearningXNA1Content\LearningXNA1Content.contentproj", "{AA568A94-9251-40B1-974B-A2550E185604}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B751E6EB-4529-4840-B641-CB6032491F2A}.Debug|x86.ActiveCfg = Debug|x86
+		{B751E6EB-4529-4840-B641-CB6032491F2A}.Debug|x86.Build.0 = Debug|x86
+		{B751E6EB-4529-4840-B641-CB6032491F2A}.Release|x86.ActiveCfg = Release|x86
+		{B751E6EB-4529-4840-B641-CB6032491F2A}.Release|x86.Build.0 = Release|x86
+		{AA568A94-9251-40B1-974B-A2550E185604}.Debug|x86.ActiveCfg = Debug|x86
+		{AA568A94-9251-40B1-974B-A2550E185604}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ABDB196-F143-43B1-AC25-22B727438F55}
+	EndGlobalSection
+EndGlobal

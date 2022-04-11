@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Blue.png</Source>
+      <Name>Blue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\bin\x86\Debug\Content\Blue.xnb</Output>
+      <Time>2021-12-05T17:45:19.3939218-06:00</Time>
+    </Item>
+    <Item>
+      <Source>BlueBoke.png</Source>
+      <Name>BlueBoke</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\bin\x86\Debug\Content\BlueBoke.xnb</Output>
+      <Time>2021-12-05T11:30:51.5249585-06:00</Time>
+    </Item>
+    <Item>
+      <Source>BlueBokeCopy.png</Source>
+      <Name>BlueBokeCopy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\bin\x86\Debug\Content\BlueBokeCopy.xnb</Output>
+      <Time>2021-12-06T18:26:14.2893609-06:00</Time>
+    </Item>
+    <Item>
+      <Source>gameOVER.png</Source>
+      <Name>gameOVER</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\bin\x86\Debug\Content\gameOVER.xnb</Output>
+      <Time>2021-12-06T18:30:01.4961565-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{65720A7A-3DFA-44F2-AE71-6569A0F45411}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycleContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\victo\source\repos\LightCycle\LightCycle\LightCycle\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2021-08-22T13:38:26.0794093-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

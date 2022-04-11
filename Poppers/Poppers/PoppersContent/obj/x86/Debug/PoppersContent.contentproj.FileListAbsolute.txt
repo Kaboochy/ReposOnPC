@@ -1,0 +1,2 @@
+C:\Users\victo\source\repos\Poppers\Poppers\PoppersContent\obj\x86\Debug\PoppersContent.contentprojAssemblyReference.cache
+C:\Users\victo\source\repos\Poppers\Poppers\PoppersContent\obj\x86\Debug\PoppersContent.contentproj.CoreCompileInputs.cache
