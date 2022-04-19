@@ -82,6 +82,15 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogFont.xnb</Output>
       <Time>2022-04-15T12:32:08.422199-05:00</Time>
     </Item>
+    <Item>
+      <Source>tinyFont.spritefont</Source>
+      <Name>tinyFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\tinyFont.xnb</Output>
+      <Time>2022-04-15T13:13:47.8277998-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3C333FFA-18B7-4572-AC2D-1572B0D35DA5}</ContentProjectGUID>

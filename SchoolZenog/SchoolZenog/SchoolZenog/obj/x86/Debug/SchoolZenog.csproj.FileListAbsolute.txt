@@ -94,3 +94,4 @@ C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Mi
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.csproj.CopyComplete
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\SpriteFont1.xnb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogFont.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\tinyFont.xnb

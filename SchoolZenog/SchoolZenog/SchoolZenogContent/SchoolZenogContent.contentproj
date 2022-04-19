@@ -72,6 +72,11 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
+    <Compile Include="tinyFont.spritefont">
+      <Name>tinyFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="Zy_attack11.txt">
       <Name>Zy_attack11</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
