@@ -21,7 +21,7 @@ namespace SchoolZenog
             zyGreen, rangerGreen, startRect, settingsRect, quitRect, mouseRect,
             volumeBar, volumeSlider, backRect, skipRect;
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art;
-        bool fire, projectileTimerBool;
+        bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, introTimer, r;
         double backX, rangerX, projectileX;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
@@ -82,12 +82,14 @@ namespace SchoolZenog
             settingsColor = new Color(100, 100, 100, 1);
             quitColor = new Color(100, 100, 100, 1);
             //SETTINGS
+            settings = false;
             volumeBar = new Rectangle(700, 700, 500, 20);
             volumeSlider = new Rectangle(800, 693, 35, 35);
             volumeText = "MUSIC";
             backRect = new Rectangle(50, 400, 320, 120);
             backText = "BACK";
             volume = .3f;
+            paused = false;
             //INTRO
             skipRect = new Rectangle(1720, 880, 200, 200);
             skipText = "SKIP";
@@ -131,12 +133,9 @@ namespace SchoolZenog
             zy = new Zy(zyText);
 
         }
-
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
-
         protected override void Update(GameTime gameTime)
         {
             //GENERAL
@@ -163,6 +162,7 @@ namespace SchoolZenog
             if (gameState == Gamestate.home)
             {
                 //START
+                startText = "START";
                 if (mouseRect.Intersects(startRect))
                     startColor = new Color(50, 50, 50, 1);
                 else
@@ -286,95 +286,131 @@ namespace SchoolZenog
             //IN GAME LOGIC
             if (gameState == Gamestate.play)
             {
-                frames++;
-                //MOVEMENT
-                if (frames % 7 == 0)
-                    zy.Update(kb, mouse);
-                if (zy.stop != 1)
+                //PAUSED GAME
+                if(kb.IsKeyDown(Keys.Escape) && oldKB.IsKeyUp(Keys.Escape))
                 {
-                    //RIGHT
-                    if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
-                    {
-                        destRect.X = 800;
-                        if (kb.IsKeyDown(Keys.LeftShift))
-                        {
-                            backX += 1.5;
-                            rangerX -= 3.55;
-                            projectileX -= 3.55;
-                        }
-                        else
-                        {
-                            backX += .7;
-                            rangerX -= 1.65;
-                            projectileX -= 1.65;
-                        }
-                    }
-                    //LEFT
-                    if (kb.IsKeyDown(Keys.A) && !kb.IsKeyDown(Keys.D))
-                    {
-                        destRect.X = 710;
-                        if (kb.IsKeyDown(Keys.LeftShift))
-                        {
-                            backX -= 1.5;
-                            rangerX += 3.55;
-                            projectileX += 3.55;
-                        }
-                        else
-                        {
-                            backX -= .7;
-                            rangerX += 1.65;
-                            projectileX += 1.65;
-                        }
-                    }
+                    if (!paused)
+                        paused = true;
+                    else
+                        paused = false;
                 }
-                //DEALING DAMAGE
-                if (zy.Hit(destRect, rangerDestRect))
+                if(paused)
                 {
-                    rangerHealth -= 20;
-                    rangerColor = Color.Red;
-                }
-                //RANGER
-                if (rangerHealth > 0)
-                {
-                    //RANGER HEALTHBAR
-                    rangerGreen.Width = rangerHealth;
-                    rangerGreen.X = rangerDestRect.X + 40;
-                    rangerGreen.Y = rangerDestRect.Y + 15;
-                    //RANGER POSITION
-                    if (rangerX < 1500)
+                    //RESUME
+                    startText = "RESUME";
+                    if (mouseRect.Intersects(startRect))
+                        startColor = new Color(50, 50, 50, 1);
+                    else
+                        startColor = new Color(100, 100, 100, 1);
+                    if (mouseRect.Intersects(startRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                     {
-                        rangerSourceRect.X = 50;
-                        if ((projectileTimer % 300 == 0) || projectileTimer == 0)
-                        {
-                            fire = true;
-                            projectileTimerBool = true;
-                        }
+                        paused = false;
                     }
-                    //RANGER SHOOTING
-                    if (fire)
+                    //SETTINGS
+                    if (mouseRect.Intersects(settingsRect))
+                        settingsColor = new Color(50, 50, 50, 1);
+                    else
+                        settingsColor = new Color(100, 100, 100, 1);
+                    if (mouseRect.Intersects(settingsRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                     {
-                        projectileX -= 5;
-                        List<Rectangle> hit = zy.Retrive(destRect);
-                        for (int i = 0; i < hit.Count; i++)
+                        gameState = Gamestate.settings;
+                    }
+                    //QUIT
+                    if (mouseRect.Intersects(quitRect))
+                        quitColor = new Color(50, 50, 50, 1);
+                    else
+                        quitColor = new Color(100, 100, 100, 1);
+                    if (mouseRect.Intersects(quitRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+                        gameState = Gamestate.home;
+                }
+                //NOT PAUSED GAME
+                if (!paused)
+                {
+                    frames++;
+                    //MOVEMENT
+                    if (frames % 7 == 0)
+                        zy.Update(kb, mouse);
+                    if (zy.stop != 1)
+                    {
+                        //RIGHT
+                        if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
                         {
-                            if (projectileRect.Intersects(hit[1]) || projectileX < -30)
+                            destRect.X = 800;
+                            if (kb.IsKeyDown(Keys.LeftShift))
                             {
-                                fire = false;
-                                projectileX = rangerX + 30;
+                                backX += 1.5;
+                                rangerX -= 3.55;
+                                projectileX -= 3.55;
+                            }
+                            else
+                            {
+                                backX += .7;
+                                rangerX -= 1.65;
+                                projectileX -= 1.65;
+                            }
+                        }
+                        //LEFT
+                        if (kb.IsKeyDown(Keys.A) && !kb.IsKeyDown(Keys.D))
+                        {
+                            destRect.X = 710;
+                            if (kb.IsKeyDown(Keys.LeftShift))
+                            {
+                                backX -= 1.5;
+                                rangerX += 3.55;
+                                projectileX += 3.55;
+                            }
+                            else
+                            {
+                                backX -= .7;
+                                rangerX += 1.65;
+                                projectileX += 1.65;
                             }
                         }
                     }
-                    //TIMER
-                    if (projectileTimerBool)
+                    //DEALING DAMAGE
+                    if (zy.Hit(destRect, rangerDestRect))
                     {
-                        projectileTimer++;
+                        rangerHealth -= 20;
+                        rangerColor = Color.Red;
+                    }
+                    //RANGER
+                    if (rangerHealth > 0)
+                    {
+                        //RANGER HEALTHBAR
+                        rangerGreen.Width = rangerHealth;
+                        rangerGreen.X = rangerDestRect.X + 40;
+                        rangerGreen.Y = rangerDestRect.Y + 15;
+                        //RANGER POSITION
+                        if (rangerX < 1500)
+                        {
+                            rangerSourceRect.X = 50;
+                            if ((projectileTimer % 300 == 0) || projectileTimer == 0)
+                            {
+                                fire = true;
+                                projectileTimerBool = true;
+                            }
+                        }
+                        //RANGER SHOOTING
+                        if (fire)
+                        {
+                            projectileX -= 5;
+                            List<Rectangle> hit = zy.Retrive(destRect);
+                            for (int i = 0; i < hit.Count; i++)
+                            {
+                                if (projectileRect.Intersects(hit[1]) || projectileX < -30)
+                                {
+                                    fire = false;
+                                    projectileX = rangerX + 30;
+                                }
+                            }
+                        }
+                        //TIMER
+                        if (projectileTimerBool)
+                        {
+                            projectileTimer++;
+                        }
                     }
                 }
-            }
-            //TEMPORARY GAME QUIT THAT SHOULD BE REPLACED BY A PAUSE MENU
-            if (kb.IsKeyDown(Keys.Escape))
-            {
-                Exit();
             }
             //END OF FRAME
             oldKB = kb;
@@ -407,6 +443,36 @@ namespace SchoolZenog
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
                 //HUD
                 spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
+            }
+            //PAUSED
+            if (gameState == Gamestate.play && paused == true)
+            {
+                spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
+                //ranger ENEMY
+                if (rangerHealth > 0)
+                {
+                    spriteBatch.Draw(rangerText, rangerDestRect, rangerSourceRect, rangerColor);
+                    spriteBatch.Draw(whiteText, rangerGreen, Color.LimeGreen);
+                }
+                //ZY
+                zy.Draw(spriteBatch, destRect, zyColor);
+                //PROJECTILE
+                if (rangerHealth > 0)
+                    spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
+                //HUD
+                //spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
+                //START BOX
+                spriteBatch.Draw(whiteText, startRect, startColor);
+                spriteBatch.DrawString(Font1, startText, new Vector2(830, 550), Color.Black);
+                spriteBatch.Draw(blackText, startRect, Color.White);
+                //SETTINGS BOX
+                spriteBatch.Draw(whiteText, settingsRect, settingsColor);
+                spriteBatch.DrawString(Font1, settingsText, new Vector2(810, 700), Color.Black);
+                spriteBatch.Draw(blackText, settingsRect, Color.White);
+                //QUIT BOX
+                spriteBatch.Draw(whiteText, quitRect, quitColor);
+                spriteBatch.DrawString(Font1, quitText, new Vector2(865, 850), Color.Black);
+                spriteBatch.Draw(blackText, quitRect, Color.White);
             }
             //START SCREEN
             if (gameState == Gamestate.home)
@@ -468,7 +534,6 @@ namespace SchoolZenog
         cutscene,
         settings,
         play,
-        pause,
         end
     }
 }
