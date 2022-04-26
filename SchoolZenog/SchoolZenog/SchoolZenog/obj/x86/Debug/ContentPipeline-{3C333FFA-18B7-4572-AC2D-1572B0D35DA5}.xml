@@ -53,16 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Zy_Sprite.xnb</Output>
-      <Time>2022-04-11T15:27:08.9580921-05:00</Time>
-    </Item>
-    <Item>
-      <Source>ThemeOfChunLi.wav</Source>
-      <Name>ThemeOfChunLi</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\ThemeOfChunLi.xnb</Output>
-      <Time>2022-04-11T15:27:08.9129094-05:00</Time>
+      <Time>2022-04-25T19:36:04.5894499-05:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont1.spritefont</Source>
@@ -90,6 +81,36 @@
       <Options>None</Options>
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\tinyFont.xnb</Output>
       <Time>2022-04-15T13:13:47.8277998-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sarabande_Full_Mix.mp3</Source>
+      <Name>Sarabande_Full_Mix</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Sarabande_Full_Mix.xnb</Output>
+      <Extra>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Sarabande_Full_Mix.wma</Extra>
+      <Time>2022-04-23T11:19:55.3181215-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Odd_Exploitation_Synth_Stem.mp3</Source>
+      <Name>Odd_Exploitation_Synth_Stem</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Odd_Exploitation_Synth_Stem.xnb</Output>
+      <Extra>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Odd_Exploitation_Synth_Stem.wma</Extra>
+      <Time>2022-04-23T12:59:42.2801066-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Odd_Exploitation_Full_Mix.mp3</Source>
+      <Name>Odd_Exploitation_Full_Mix</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Odd_Exploitation_Full_Mix.xnb</Output>
+      <Extra>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Odd_Exploitation_Full_Mix.wma</Extra>
+      <Time>2022-04-25T18:03:37.1725838-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

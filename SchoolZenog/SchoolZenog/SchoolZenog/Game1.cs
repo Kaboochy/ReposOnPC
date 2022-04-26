@@ -18,16 +18,20 @@ namespace SchoolZenog
         KeyboardState oldKB, kb;
         MouseState oldmouse, mouse;
         Rectangle destRect, backgroundSourceRect, backgroundDestRect, rangerSourceRect, rangerDestRect, projectileSourceRect, projectileRect,
-            zyGreen, rangerGreen, startRect, settingsRect, quitRect, mouseRect, volumeBar, volumeSlider, backRect;
+            zyGreen, rangerGreen, startRect, settingsRect, quitRect, mouseRect,
+            volumeBar, volumeSlider, backRect, skipRect;
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art;
         bool fire, projectileTimerBool;
-        int frames, projectileTimer, rangerHealth, zyHealth;
+        int frames, projectileTimer, rangerHealth, zyHealth, introTimer, r;
         double backX, rangerX, projectileX;
-        string startText, zenogText, settingsText, quitText, volumeText, backText;
-        SoundEffect music;
-        Color rangerColor, zyColor, startColor, settingsColor, quitColor;
-        Gamestate gameState;
+        string startText, zenogText, settingsText, quitText, volumeText, backText,
+            skipText, introText;
+        float volume;
+        Vector2 introTextVect;
+        Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor;
+        Gamestate gameState, oldState;
         SpriteFont Font1, zenogFont, tinyFont;
+        Song homeMusic, introMusic, gameMusic;
         Zy zy;
 
         public Game1()
@@ -79,20 +83,29 @@ namespace SchoolZenog
             quitColor = new Color(100, 100, 100, 1);
             //SETTINGS
             volumeBar = new Rectangle(700, 700, 500, 20);
-            volumeSlider = new Rectangle(710, 693, 35, 35);
-            volumeText = "VOLUME";
+            volumeSlider = new Rectangle(800, 693, 35, 35);
+            volumeText = "MUSIC";
             backRect = new Rectangle(50, 400, 320, 120);
             backText = "BACK";
+            volume = .3f;
+            //INTRO
+            skipRect = new Rectangle(1720, 880, 200, 200);
+            skipText = "SKIP";
+            introText = "In the year 2436";
+            introTextColor = new Color(r, r, r);
+            r = 0;
+            introTimer = 0;
+            introTextVect = new Vector2(600, 500);
             //Else
             frames = 0;
             oldmouse = Mouse.GetState();
-            gameState = Gamestate.start;
+            gameState = Gamestate.home;
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            //IMAGES
             spriteBatch = new SpriteBatch(GraphicsDevice);
             zyText = Content.Load<Texture2D>("Zy_Sprite");
             rangerText = Content.Load<Texture2D>("Ranger_Sprite");
@@ -100,11 +113,23 @@ namespace SchoolZenog
             blackText = Content.Load<Texture2D>("Rectangle");
             whiteText = Content.Load<Texture2D>("White_Square");
             art = Content.Load<Texture2D>("Start_Screen");
-            music = Content.Load<SoundEffect>("ThemeOfChunLi");
+
+            //MUSIC
+            homeMusic = Content.Load<Song>("Sarabande_Full_Mix");
+            introMusic = Content.Load<Song>("Odd_Exploitation_Synth_Stem");
+            gameMusic = Content.Load<Song>("Odd_Exploitation_Full_Mix");
+            MediaPlayer.Play(homeMusic);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = volume;
+
+            //FONTS
             Font1 = Content.Load<SpriteFont>("SpriteFont1");
             zenogFont = Content.Load<SpriteFont>("zenogFont");
             tinyFont = Content.Load<SpriteFont>("tinyFont");
+
+            //ELSE
             zy = new Zy(zyText);
+
         }
 
         protected override void UnloadContent()
@@ -124,8 +149,18 @@ namespace SchoolZenog
             mouseRect.Y = mouse.Y;
             zyGreen.Width = zyHealth;
             //GAMESTATES
+            if (gameState == Gamestate.cutscene && introTimer == 1)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(introMusic);
+            }
+            if (gameState == Gamestate.play && frames == 7)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(gameMusic);
+            }
             //START SCREEN LOGIC
-            if (gameState == Gamestate.start)
+            if (gameState == Gamestate.home)
             {
                 //START
                 if (mouseRect.Intersects(startRect))
@@ -133,14 +168,18 @@ namespace SchoolZenog
                 else
                     startColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(startRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
-                    gameState = Gamestate.play;
+                {
+                    gameState = Gamestate.cutscene;
+                }
                 //SETTINGS
                 if (mouseRect.Intersects(settingsRect))
                     settingsColor = new Color(50, 50, 50, 1);
                 else
                     settingsColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(settingsRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+                {
                     gameState = Gamestate.settings;
+                }
                 //QUIT
                 if (mouseRect.Intersects(quitRect))
                     quitColor = new Color(50, 50, 50, 1);
@@ -152,22 +191,102 @@ namespace SchoolZenog
             //SETTINGS LOGIC
             if (gameState == Gamestate.settings)
             {
+                //BACK
                 if (mouseRect.Intersects(backRect))
                     quitColor = new Color(50, 50, 50, 1);
                 else
                     quitColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(backRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
-                    gameState = Gamestate.start;
+                {
+                    gameState = Gamestate.home;
+                }
+                //SLIDER
+                if (volumeSlider.X > 1200)
+                    volumeSlider.X = 1180;
+                if (volumeSlider.X < 700)
+                    volumeSlider.X = 720;
+                if ((mouseRect.Intersects(volumeSlider) && mouse.LeftButton == ButtonState.Pressed) || (mouseRect.Intersects(volumeBar) && mouse.LeftButton == ButtonState.Pressed))
+                {
+                    if (volumeSlider.X < 1200 && volumeSlider.X > 700)
+                        volumeSlider.X = mouse.X - 10;
+                }
+                if ((mouseRect.Intersects(volumeBar) && mouse.LeftButton == ButtonState.Pressed) && (volumeSlider.X > 700 && volumeSlider.X < 1200))
+                    volumeSlider.X = mouse.X - 10;
+                //MUSIC VOLUME
+                volume = (float)((volumeSlider.X - 700) / 500.0);
+                MediaPlayer.Volume = volume;
+            }
+            //CUTSCENE LOGIC
+            if (gameState == Gamestate.cutscene)
+            {
+                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released) || introTimer > 1200)
+                {
+                    gameState = Gamestate.loading;
+                    introText = "LOADING";
+                    introTimer = 0;
+                }
+                introTimer++;
+                if (introTimer > 60 && introTimer < 200 && r < 250)
+                {
+                    r += 2;
+                    introTextColor = new Color(r, r, r);
+                }
+                if (introTimer > 210 && introTimer < 285 && r > 0)
+                {
+                    r -= 5;
+                    introTextColor = new Color(r, r, r);
+                }
+                if (introTimer > 300 && introTimer < 600 && r < 250)
+                {
+                    r += 2;
+                    introTextColor = new Color(r, r, r);
+                    introTextVect = new Vector2(200, 450);
+                    introText = "Over 99 percent of Earth was wiped out \n       from a large-scale war";
+                }
+                if (introTimer > 600 && introTimer < 675 && r > 0)
+                {
+                    r -= 5;
+                    introTextColor = new Color(r, r, r);
+                }
+                if (introTimer > 700 && introTimer < 1100 && r < 250)
+                {
+                    r += 2;
+                    introTextColor = new Color(r, r, r);
+                    introTextVect = new Vector2(100, 450);
+                    introText = "   Silence stood for the next 200 years \n            until THEY appeared";
+                }
+                if (introTimer > 1110 && introTimer < 1175 && r > 0)
+                {
+                    r -= 5;
+                    introTextColor = new Color(r, r, r);
+                }
+            }
+            //LOADING LOGIC
+            if (gameState == Gamestate.loading)
+            {
+                introTextColor = Color.White;
+                introTextVect = new Vector2(50, 950);
+                if (introTimer == 0)
+                    introText = "LOADING";
+                introTimer++;
+                if (introTimer == 30 || introTimer == 150)
+                    introText = "LOADING.";
+                if (introTimer == 60 || introTimer == 180)
+                    introText = "LOADING..";
+                if (introTimer == 90 || introTimer == 210)
+                    introText = "LOADING...";
+                if (introTimer == 120)
+                    introText = "LOADING";
+                if (introTimer > 230)
+                {
+                    gameState = Gamestate.play;
+                    introTimer = 1;
+                }
             }
             //IN GAME LOGIC
             if (gameState == Gamestate.play)
             {
                 frames++;
-                if (frames % 30 == 0)
-                    zyColor = Color.White;
-                //AUDIO
-                if (frames == 1)
-                    music.Play();
                 //MOVEMENT
                 if (frames % 7 == 0)
                     zy.Update(kb, mouse);
@@ -252,10 +371,15 @@ namespace SchoolZenog
                     }
                 }
             }
-
+            //TEMPORARY GAME QUIT THAT SHOULD BE REPLACED BY A PAUSE MENU
+            if (kb.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
             //END OF FRAME
             oldKB = kb;
             oldmouse = mouse;
+            oldState = gameState;
             base.Update(gameTime);
         }
 
@@ -263,7 +387,7 @@ namespace SchoolZenog
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-            //PLAYSTATE
+            //PLAYING
             if (gameState == Gamestate.play)
             {
                 spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
@@ -285,7 +409,7 @@ namespace SchoolZenog
                 spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
             }
             //START SCREEN
-            if (gameState == Gamestate.start)
+            if (gameState == Gamestate.home)
             {
                 //BACKGROUND
                 spriteBatch.Draw(art, new Rectangle(0, 0, 1920, 1080), new Color(100, 100, 150, 1));
@@ -320,7 +444,18 @@ namespace SchoolZenog
                 //BACK
                 spriteBatch.Draw(whiteText, backRect, quitColor);
                 spriteBatch.Draw(blackText, backRect, Color.White);
-                spriteBatch.DrawString(Font1, backText, new Vector2(100, 400), Color.Black);
+                spriteBatch.DrawString(Font1, backText, new Vector2(110, 410), Color.Black);
+            }
+            //CUTSCENE
+            if (gameState == Gamestate.cutscene)
+            {
+                spriteBatch.DrawString(tinyFont, skipText, new Vector2(1750, 960), Color.Gray);
+                spriteBatch.DrawString(Font1, introText, introTextVect, introTextColor);
+            }
+            //LOADING
+            if (gameState == Gamestate.loading)
+            {
+                spriteBatch.DrawString(Font1, introText, introTextVect, introTextColor);
             }
             spriteBatch.End();
             base.Draw(gameTime);
@@ -328,11 +463,12 @@ namespace SchoolZenog
     }
     enum Gamestate
     {
-        start,
+        home,
+        loading,
+        cutscene,
         settings,
         play,
         pause,
-        cutscene,
         end
     }
 }
