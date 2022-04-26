@@ -113,11 +113,10 @@ namespace SchoolZenog
                 anime.death.Add(new Animation(tex, i, 22, 150, @"Content/Zy_death.txt"));
             }
         }
-        public void Update(KeyboardState Kb, MouseState Mouse)
+        public void Update(KeyboardState Kb, MouseState Mouse, Rectangle destRect)
         {
             kb = Kb;
             mouse = Mouse;
-
             //idle
             if (stop == 0)
             {
@@ -144,11 +143,25 @@ namespace SchoolZenog
                 currentAnime = Animated.attack21;
                 stop = 1;
             }
+            //Jump
+            if (kb.IsKeyDown(Keys.Space) && oldKb.IsKeyUp(Keys.Space))
+            {
+                currentAnime = Animated.jump;
+                stop = 2;
+            }
             //frame update
             up();
             if (stop == 1 && currentFrame + 1 == Number())
             {
                 stop = 0;
+            }
+            if (stop == 2 && currentFrame + 1 == Number() && destRect.Y >= 750)
+            {
+                stop = 0;
+            }
+            if(stop == 2 && currentFrame + 1 == Number() && destRect.Y < 750)
+            {
+                currentFrame--;
             }
             // hitbox logic
 
