@@ -124,6 +124,8 @@ namespace SchoolZenog
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Volume = volume;
 
+            //SOUND EFFECTS
+
             //FONTS
             Font1 = Content.Load<SpriteFont>("SpriteFont1");
             zenogFont = Content.Load<SpriteFont>("zenogFont");
@@ -139,6 +141,7 @@ namespace SchoolZenog
         protected override void Update(GameTime gameTime)
         {
             //GENERAL
+            IsMouseVisible = true;
             backgroundSourceRect.X = (int)backX;
             rangerDestRect.X = (int)rangerX;
             projectileRect.X = (int)projectileX;
@@ -159,7 +162,7 @@ namespace SchoolZenog
                 MediaPlayer.Play(gameMusic);
             }
             //START SCREEN LOGIC
-            if (gameState == Gamestate.home)
+            if (gameState == Gamestate.home && settings == false)
             {
                 //START
                 startText = "START";
@@ -178,7 +181,7 @@ namespace SchoolZenog
                     settingsColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(settingsRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                 {
-                    gameState = Gamestate.settings;
+                    settings = true;
                 }
                 //QUIT
                 if (mouseRect.Intersects(quitRect))
@@ -189,7 +192,7 @@ namespace SchoolZenog
                     Exit();
             }
             //SETTINGS LOGIC
-            if (gameState == Gamestate.settings)
+            if (settings)
             {
                 //BACK
                 if (mouseRect.Intersects(backRect))
@@ -198,7 +201,7 @@ namespace SchoolZenog
                     quitColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(backRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                 {
-                    gameState = Gamestate.home;
+                    settings = false;
                 }
                 //SLIDER
                 if (volumeSlider.X > 1200)
@@ -289,12 +292,19 @@ namespace SchoolZenog
                 //PAUSED GAME
                 if(kb.IsKeyDown(Keys.Escape) && oldKB.IsKeyUp(Keys.Escape))
                 {
-                    if (!paused)
-                        paused = true;
-                    else
-                        paused = false;
+                    if(settings == false)
+                    {
+                        if (!paused)
+                            paused = true;
+                        else
+                            paused = false;
+                    }
+                    if(settings)
+                    {
+                        settings = false;
+                    }
                 }
-                if(paused)
+                if(paused && settings == false)
                 {
                     //RESUME
                     startText = "RESUME";
@@ -313,7 +323,7 @@ namespace SchoolZenog
                         settingsColor = new Color(100, 100, 100, 1);
                     if (mouseRect.Intersects(settingsRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                     {
-                        gameState = Gamestate.settings;
+                        settings = true;
                     }
                     //QUIT
                     if (mouseRect.Intersects(quitRect))
@@ -326,10 +336,11 @@ namespace SchoolZenog
                 //NOT PAUSED GAME
                 if (!paused)
                 {
+                    IsMouseVisible = false;
                     frames++;
                     //MOVEMENT
                     if (frames % 7 == 0)
-                        zy.Update(kb, mouse);
+                        zy.Update(kb, mouse, destRect);
                     if (zy.stop != 1)
                     {
                         //RIGHT
@@ -428,7 +439,7 @@ namespace SchoolZenog
             {
                 spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
                 //HITBOX
-                zy.DrawHitbox(spriteBatch, destRect, whiteText);
+                //zy.DrawHitbox(spriteBatch, destRect, whiteText);
 
                 //ranger ENEMY
                 if (rangerHealth > 0)
@@ -461,21 +472,28 @@ namespace SchoolZenog
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
                 //HUD
                 //spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
-                //START BOX
-                spriteBatch.Draw(whiteText, startRect, startColor);
-                spriteBatch.DrawString(Font1, startText, new Vector2(830, 550), Color.Black);
-                spriteBatch.Draw(blackText, startRect, Color.White);
-                //SETTINGS BOX
-                spriteBatch.Draw(whiteText, settingsRect, settingsColor);
-                spriteBatch.DrawString(Font1, settingsText, new Vector2(810, 700), Color.Black);
-                spriteBatch.Draw(blackText, settingsRect, Color.White);
-                //QUIT BOX
-                spriteBatch.Draw(whiteText, quitRect, quitColor);
-                spriteBatch.DrawString(Font1, quitText, new Vector2(865, 850), Color.Black);
-                spriteBatch.Draw(blackText, quitRect, Color.White);
+                if (paused)
+                {
+                    spriteBatch.Draw(whiteText, new Rectangle(0, 0, 1920, 1080), new Color(0,0,0,155));
+                }
+                if (settings == false)
+                {
+                    //START BOX
+                    spriteBatch.Draw(whiteText, startRect, startColor);
+                    spriteBatch.DrawString(Font1, startText, new Vector2(830, 550), Color.Black);
+                    spriteBatch.Draw(blackText, startRect, Color.White);
+                    //SETTINGS BOX
+                    spriteBatch.Draw(whiteText, settingsRect, settingsColor);
+                    spriteBatch.DrawString(Font1, settingsText, new Vector2(810, 700), Color.Black);
+                    spriteBatch.Draw(blackText, settingsRect, Color.White);
+                    //QUIT BOX
+                    spriteBatch.Draw(whiteText, quitRect, quitColor);
+                    spriteBatch.DrawString(Font1, quitText, new Vector2(865, 850), Color.Black);
+                    spriteBatch.Draw(blackText, quitRect, Color.White);
+                }
             }
             //START SCREEN
-            if (gameState == Gamestate.home)
+            if (gameState == Gamestate.home && !settings)
             {
                 //BACKGROUND
                 spriteBatch.Draw(art, new Rectangle(0, 0, 1920, 1080), new Color(100, 100, 150, 1));
@@ -495,13 +513,16 @@ namespace SchoolZenog
                 spriteBatch.DrawString(zenogFont, zenogText, new Vector2(690, 80), Color.White);
             }
             //SETTINGS
-            if (gameState == Gamestate.settings)
+            if (settings)
             {
-                //BACKGROUND
-                spriteBatch.Draw(art, new Rectangle(0, 0, 1920, 1080), new Color(100, 100, 150, 1));
-                spriteBatch.Draw(whiteText, new Rectangle(400, 400, 1200, 500), startColor);
-                //LOGO
-                spriteBatch.DrawString(zenogFont, zenogText, new Vector2(690, 80), Color.White);
+                if(paused == false)
+                {
+                    //BACKGROUND
+                    spriteBatch.Draw(art, new Rectangle(0, 0, 1920, 1080), new Color(100, 100, 150, 1));
+                    spriteBatch.Draw(whiteText, new Rectangle(400, 400, 1200, 500), startColor);
+                    //LOGO
+                    spriteBatch.DrawString(zenogFont, zenogText, new Vector2(690, 80), Color.White);
+                }
                 //VOLUME BAR
                 spriteBatch.DrawString(Font1, settingsText, new Vector2(810, 500), Color.White);
                 spriteBatch.Draw(whiteText, volumeBar, Color.White);
@@ -532,7 +553,6 @@ namespace SchoolZenog
         home,
         loading,
         cutscene,
-        settings,
         play,
         end
     }
