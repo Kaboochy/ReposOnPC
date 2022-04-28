@@ -344,7 +344,7 @@ namespace SchoolZenog
                     //STOP 0 = Movement and idle
                     //STOP 1 = Attacking
                     //STOP 2 = Jumping
-                    if (zy.stop != 1)
+                    if (zy.stop != 1 && zy.stop != -1)
                     {
                         //RIGHT
                         if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
@@ -384,13 +384,13 @@ namespace SchoolZenog
                         if (zy.stop == 2)
                         {
                             x += 1;
-                            destRect.Y -= (int)(-1 * Math.Pow(.2 * x, 2) + 15);
+                            destRect.Y -= (int)(-1 * Math.Pow(.175 * x, 2) + 20);
                             if (destRect.Y > 750)
                                 destRect.Y = 750;
                         }
                         else
                             x = 0;
-                            
+
                     }
                     //DEALING DAMAGE
                     if (zy.Hit(destRect, rangerDestRect))

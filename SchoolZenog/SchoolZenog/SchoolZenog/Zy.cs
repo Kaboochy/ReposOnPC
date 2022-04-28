@@ -161,6 +161,14 @@ namespace SchoolZenog
             {
                 currentFrame--;
             }
+            if (stop == 2 && currentFrame + 1 == Number() && destRect.Y >= 750)
+            {
+                stop = 0;
+            }
+            if(stop == 2 && currentFrame + 1 == Number() && destRect.Y < 750)
+            {
+                currentFrame--;
+            }
             // hitbox logic
 
             oldKb = kb;
