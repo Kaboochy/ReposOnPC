@@ -18,13 +18,13 @@ namespace SchoolZenog
         KeyboardState oldKB, kb;
         MouseState oldmouse, mouse;
         Rectangle destRect, backgroundSourceRect, backgroundDestRect, rangerSourceRect, rangerDestRect, projectileSourceRect, projectileRect,
-            zyGreen, zyBlack, rangerGreen, startRect, settingsRect, quitRect, mouseRect,
-            volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect;
+            rangerGreen, startRect, settingsRect, quitRect, mouseRect,
+            volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect, zyGreenRect, zyBlueRect;
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText,
             hudText, zyGreenText, zyBlueText, hudGray;
         bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum;
-        double backX, rangerX, projectileX, x;
+        double backX, rangerX, projectileX, x, greenX, blueX;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
             skipText, introText, scriptText, cutsceneText;
         float volume, a;
@@ -50,15 +50,18 @@ namespace SchoolZenog
             graphics.ApplyChanges();
             //Zy
             destRect = new Rectangle(800, 750, 300, 300);
-            zyGreen = new Rectangle(50, 50, 500, 50);
-            zyBlack = new Rectangle(50, 110, 500, 50);
             zyColor = new Color(255, 255, 255);
-            zyHealth = 1000;
-            zyShield = 1000;
+            zyHealth = 1920;
+            zyShield = 1920;
             bubbleRect = new Rectangle(780, 780, 225, 300);
             //Bachground
             backgroundSourceRect = new Rectangle(0, 0, 800, 450);
             backgroundDestRect = new Rectangle(0, 0, 1920, 1080);
+            //HUD
+            greenX = 0;
+            blueX = 0;
+            zyGreenRect = new Rectangle((int)greenX, 0, 1920, 1080);
+            zyBlueRect = new Rectangle((int)blueX, 0, 1920, 1080);
             //ranger
             rangerSourceRect = new Rectangle(0, 0, 50, 50);
             rangerDestRect = new Rectangle((int)rangerX, 820, 200, 200);
@@ -171,8 +174,10 @@ namespace SchoolZenog
             mouse = Mouse.GetState();
             mouseRect.X = mouse.X;
             mouseRect.Y = mouse.Y;
-            zyGreen.Width = zyHealth;
-            zyBlack.Width = zyShield;
+            zyGreenRect.Width = zyHealth;
+            zyBlueRect.Width = zyShield;
+            zyGreenRect.X = (int)greenX;
+            zyBlueRect.X = (int)blueX;
             //GAMESTATES
             if (gameState == Gamestate.cutscene && introTimer == 1)
             {
@@ -296,10 +301,12 @@ namespace SchoolZenog
                         scriptText = " Zy: Have any enemies reached the walls yet?";
                     if(b==2 && scriptNum == 1)
                         scriptText = " Nomi: Now we just have to wait and \n       take them down as they come out";
+                    /* //DEBUGGING STUFF
                     Console.WriteLine("scriptNum = "+scriptNum);
                     Console.WriteLine("d = "+d);
                     Console.WriteLine("introTimer = " + introTimer);
                     Console.WriteLine("b = " + b);
+                    */
                     if (g == scriptText.Length)
                         nextColor = Color.White;
                     else if (scriptNum == 7 || scriptNum == 13)
@@ -540,13 +547,19 @@ namespace SchoolZenog
                     if (zyShield > 150)
                         zy.shield = true;
                     if (zy.currentAnime.Equals(Animated.blockS) && zyShield > 0)
-                        zyShield -= 10;
-                    if (!zy.currentAnime.Equals(Animated.blockS) && zyShield < 1000)
-                        zyShield++;
+                    {
+                        zyShield -= 20;
+                        //blueX +=3;
+                    } 
+                    if (!zy.currentAnime.Equals(Animated.blockS) && zyShield < 1920)
+                    {
+                        zyShield += 2;
+                        //blueX -= (int).5;
+                    }  
                     if (zyShield <= 0)
                         zy.shield = false;
                     //ULTIMATE
-                    if (zyShield >= 1000)
+                    if (zyShield >= 1920)
                         zy.ult = true;
                     else
                         zy.ult = false;
@@ -629,8 +642,8 @@ namespace SchoolZenog
                 if (rangerHealth > 0)
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
                 //HUD
-                spriteBatch.Draw(zyGreenText, new Rectangle(0,0,1920,1080), Color.White);
-                spriteBatch.Draw(zyBlueText, new Rectangle(0, 0, 1920, 1080), Color.White);
+                spriteBatch.Draw(zyGreenText, zyGreenRect, Color.White);
+                spriteBatch.Draw(zyBlueText, zyBlueRect, Color.White);
                 spriteBatch.Draw(hudGray, new Rectangle(0, 0, 1920, 1080), Color.White);
                 spriteBatch.Draw(hudText, new Rectangle(0, 0, 1920, 1080), Color.White);
                 //PAUSED
