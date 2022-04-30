@@ -175,6 +175,15 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudG.xnb</Output>
       <Time>2022-04-30T12:55:45.9367363-05:00</Time>
     </Item>
+    <Item>
+      <Source>finalBackground2.jpg</Source>
+      <Name>finalBackground2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\finalBackground2.xnb</Output>
+      <Time>2022-04-30T15:55:37.1410253-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3C333FFA-18B7-4572-AC2D-1572B0D35DA5}</ContentProjectGUID>

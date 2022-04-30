@@ -23,7 +23,7 @@ namespace SchoolZenog
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText,
             hudText, zyGreenText, zyBlueText, hudGray;
         bool fire, projectileTimerBool, paused, settings;
-        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum;
+        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, enemiesRemaining;
         double backX, rangerX, projectileX, x, greenX, blueX;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
             skipText, introText, scriptText, cutsceneText;
@@ -55,7 +55,7 @@ namespace SchoolZenog
             zyShield = 1920;
             bubbleRect = new Rectangle(780, 780, 225, 300);
             //Bachground
-            backgroundSourceRect = new Rectangle(0, 0, 800, 450);
+            backgroundSourceRect = new Rectangle(0, 110,1920, 1080);
             backgroundDestRect = new Rectangle(0, 0, 1920, 1080);
             //HUD
             greenX = 0;
@@ -70,6 +70,7 @@ namespace SchoolZenog
             rangerX = 2000;
             rangerHealth = 100;
             fire = false;
+            enemiesRemaining = 1;
             //projectile
             projectileSourceRect = new Rectangle(0, 200, 50, 50);
             projectileRect = new Rectangle((int)projectileX, 870, 120, 120);
@@ -129,7 +130,7 @@ namespace SchoolZenog
             spriteBatch = new SpriteBatch(GraphicsDevice);
             zyText = Content.Load<Texture2D>("Zy_Sprite");
             rangerText = Content.Load<Texture2D>("Ranger_Sprite");
-            backgroundText = Content.Load<Texture2D>("TestBackground");
+            backgroundText = Content.Load<Texture2D>("finalBackground2"); //USED TO BE --> ("TestBackground");
             blackText = Content.Load<Texture2D>("Rectangle");
             whiteText = Content.Load<Texture2D>("White_Square");
             art = Content.Load<Texture2D>("Start_Screen");
@@ -484,21 +485,24 @@ namespace SchoolZenog
                     //STOP 2 = Jumping
                     if (zy.stop != 1 && zy.stop != 3)
                     {
+                        //BACKGROUND LOOPING LOGIC
+                        if (backX >= 1280)
+                            backX = 0;
                         //RIGHT
                         if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
                         {
                             destRect.X = 800;
                             if (kb.IsKeyDown(Keys.LeftShift))
                             {
-                                backX += 1.5;
-                                rangerX -= 3.55;
-                                projectileX -= 3.55;
+                                backX += 5; //old = 1.5
+                                rangerX -= 5; //old = 3.55
+                                projectileX -= 5; //old = 3.55
                             }
                             else
                             {
-                                backX += .7;
-                                rangerX -= 1.65;
-                                projectileX -= 1.65;
+                                backX += 2; //old = .7
+                                rangerX -= 2; //old = 1.65
+                                projectileX -= 2; //old = 1.65
                             }
                         }
                         //LEFT
@@ -507,15 +511,15 @@ namespace SchoolZenog
                             destRect.X = 710;
                             if (kb.IsKeyDown(Keys.LeftShift))
                             {
-                                backX -= 1.5;
-                                rangerX += 3.55;
-                                projectileX += 3.55;
+                                backX -= 5;
+                                rangerX += 5;
+                                projectileX += 5;
                             }
                             else
                             {
-                                backX -= .7;
-                                rangerX += 1.65;
-                                projectileX += 1.65;
+                                backX -= 2;
+                                rangerX += 2;
+                                projectileX += 2;
                             }
                         }
                         //JUMPING
@@ -729,7 +733,6 @@ namespace SchoolZenog
                     if (introTimer > 2300)
                         spriteBatch.DrawString(tinyFont, skipText, new Vector2(1600, 800), nextColor);
                 }
-                //THIRD PART
             }
             //LOADING
             if (gameState == Gamestate.loading)
