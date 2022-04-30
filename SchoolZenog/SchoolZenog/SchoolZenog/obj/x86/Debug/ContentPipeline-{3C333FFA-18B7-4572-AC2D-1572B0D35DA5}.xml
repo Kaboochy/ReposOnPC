@@ -130,6 +130,15 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogCutscene1.xnb</Output>
       <Time>2022-04-28T21:49:43.9833314-05:00</Time>
     </Item>
+    <Item>
+      <Source>zenogCutscene2.jpg</Source>
+      <Name>zenogCutscene2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogCutscene2.xnb</Output>
+      <Time>2022-04-29T20:24:23.6310762-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3C333FFA-18B7-4572-AC2D-1572B0D35DA5}</ContentProjectGUID>

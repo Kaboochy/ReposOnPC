@@ -22,13 +22,13 @@ namespace SchoolZenog
             volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect;
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText;
         bool fire, projectileTimerBool, paused, settings;
-        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g;
+        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d;
         double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
             skipText, introText, scriptText, cutsceneText;
         float volume;
         Vector2 introTextVect;
-        Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor;
+        Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor, cutsceneColor;
         Gamestate gameState, oldState;
         SpriteFont Font1, zenogFont, tinyFont;
         Song homeMusic, introMusic, gameMusic;
@@ -100,12 +100,15 @@ namespace SchoolZenog
             introTextColor = new Color(r, r, r);
             r = 0;
             introTimer = 0;
+            b = 0;
             introTextVect = new Vector2(600, 500);
             //CUTSCENE 1
-            scriptText = "I THINK HAMBURGERS AND FRIES WORK WELL WITH COKE";
+            scriptText = "Zy: Have any enemies reached the walls yet?";
             cutsceneText = "";
             g = 0;
-            cutsceneTextRect = new Rectangle(0, 1620, 1920, 300);
+            d = 0;
+            cutsceneTextRect = new Rectangle(0, 780, 1920, 300);
+            cutsceneColor = new Color(d, d, d);
             //Else
             frames = 0;
             oldmouse = Mouse.GetState();
@@ -234,58 +237,69 @@ namespace SchoolZenog
             //CUTSCENE LOGIC
             if (gameState == Gamestate.cutscene)
             {
-                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)/* || introTimer > 1200*/)
+                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && b == 1)/* || introTimer > 1200*/)
                 {
                     gameState = Gamestate.loading;
                     introText = "LOADING";
-                    introTimer = 0;
+                    introTimer = 5000;
+                }
+                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && b == 0)/* || introTimer > 1200*/)
+                {
+                    b = 1;
+                    introTimer = 2000;
                 }
                 introTimer++;
                 //STORY BACKGROUND INFORMATION LOGIC
-                if (introTimer > 60 && introTimer < 200 && r < 250)
+                if (b == 0)
                 {
-                    r += 2;
-                    introTextColor = new Color(r, r, r);
-                }
-                if (introTimer > 210 && introTimer < 285 && r > 0)
-                {
-                    r -= 5;
-                    introTextColor = new Color(r, r, r);
-                }
-                if (introTimer > 300 && introTimer < 600 && r < 250)
-                {
-                    r += 2;
-                    introTextColor = new Color(r, r, r);
-                    introTextVect = new Vector2(200, 450);
-                    introText = "Over 99 percent of Earth was wiped out \n       from a large-scale war";
-                }
-                if (introTimer > 600 && introTimer < 675 && r > 0)
-                {
-                    r -= 5;
-                    introTextColor = new Color(r, r, r);
-                }
-                if (introTimer > 700 && introTimer < 1100 && r < 250)
-                {
-                    r += 2;
-                    introTextColor = new Color(r, r, r);
-                    introTextVect = new Vector2(100, 450);
-                    introText = "   Silence stood for the next 200 years \n            until THEY appeared";
-                }
-                if (introTimer > 1110 && introTimer < 1175 && r > 0)
-                {
-                    r -= 5;
-                    introTextColor = new Color(r, r, r);
+                    if (introTimer > 60 && introTimer < 200 && r < 250)
+                    {
+                        r += 2;
+                        introTextColor = new Color(r, r, r);
+                    }
+                    if (introTimer > 210 && introTimer < 285 && r > 0)
+                    {
+                        r -= 5;
+                        introTextColor = new Color(r, r, r);
+                    }
+                    if (introTimer > 300 && introTimer < 600 && r < 250)
+                    {
+                        r += 2;
+                        introTextColor = new Color(r, r, r);
+                        introTextVect = new Vector2(200, 450);
+                        introText = "Over 99 percent of Earth was wiped out \n       from a large-scale war";
+                    }
+                    if (introTimer > 600 && introTimer < 675 && r > 0)
+                    {
+                        r -= 5;
+                        introTextColor = new Color(r, r, r);
+                    }
+                    if (introTimer > 700 && introTimer < 1100 && r < 250)
+                    {
+                        r += 2;
+                        introTextColor = new Color(r, r, r);
+                        introTextVect = new Vector2(100, 450);
+                        introText = "   Silence stood for the next 200 years \n            until THEY appeared";
+                    }
+                    if (introTimer > 1110 && introTimer < 1175 && r > 0)
+                    {
+                        r -= 5;
+                        introTextColor = new Color(r, r, r);
+                    }
                 }
                 //ACTUAL CUTSCENES LOGIC
-                if (introTimer > 1200)
+                if (b == 1)
                 {
-                    r++;
-                    introTextColor = new Color(r, r, r);
-                }
-                if (introTimer > 1300 && frames % 45 == 0 && g < scriptText.Length - 1)
-                {
-                    cutsceneText = cutsceneText + char.ToString(scriptText[g]);
-                    g++;
+                    if (introTimer > 2100 && d < 255)
+                    {
+                        d+=2;
+                        cutsceneColor = new Color(d, d, d);
+                    }
+                    if (introTimer > 2300 && frames % 120 == 0 && g < scriptText.Length)
+                    {
+                        cutsceneText = cutsceneText + char.ToString(scriptText[g]);
+                        g++;
+                    }
                 }
             }
             //LOADING LOGIC
@@ -293,18 +307,18 @@ namespace SchoolZenog
             {
                 introTextColor = Color.White;
                 introTextVect = new Vector2(50, 950);
-                if (introTimer == 0)
+                if (introTimer == 5000)
                     introText = "LOADING";
                 introTimer++;
-                if (introTimer == 30 || introTimer == 150)
+                if (introTimer == 5030 || introTimer == 5150)
                     introText = "LOADING.";
-                if (introTimer == 60 || introTimer == 180)
+                if (introTimer == 5060 || introTimer == 5180)
                     introText = "LOADING..";
-                if (introTimer == 90 || introTimer == 210)
+                if (introTimer == 5090 || introTimer == 5210)
                     introText = "LOADING...";
-                if (introTimer == 120)
+                if (introTimer == 5120)
                     introText = "LOADING";
-                if (introTimer > 230)
+                if (introTimer > 5230)
                 {
                     gameState = Gamestate.play;
                     introTimer = 1;
@@ -588,14 +602,18 @@ namespace SchoolZenog
             if (gameState == Gamestate.cutscene)
             {
                 //FIRST PART
-                spriteBatch.DrawString(tinyFont, skipText, new Vector2(1750, 960), Color.Gray);
-                spriteBatch.DrawString(Font1, introText, introTextVect, introTextColor);
-                //SECOND PART
-                if (introTimer > 1200)
+                if (b == 0)
                 {
-                    spriteBatch.Draw(cutscene1, new Rectangle(0, 0, 1920, 1080), introTextColor);
-                    spriteBatch.Draw(whiteText, cutsceneTextRect, introTextColor);
-                    spriteBatch.DrawString(tinyFont, cutsceneText, new Vector2(100, 500), Color.White);
+                    spriteBatch.DrawString(tinyFont, skipText, new Vector2(1750, 960), Color.Gray);
+                    spriteBatch.DrawString(Font1, introText, introTextVect, introTextColor);
+                }
+                //SECOND PART
+                if (b == 1)
+                {
+                    spriteBatch.Draw(cutscene1, new Rectangle(0, 0, 1920, 1080), cutsceneColor);
+                    spriteBatch.Draw(whiteText, cutsceneTextRect, new Color(0,0,0,d-100));
+                    spriteBatch.DrawString(tinyFont, cutsceneText, new Vector2(100, 800), Color.White);
+                    spriteBatch.DrawString(tinyFont, skipText, new Vector2(1750, 960), Color.Gray);
                 }
                 //THIRD PART
             }
