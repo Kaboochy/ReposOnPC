@@ -104,7 +104,6 @@ namespace SchoolZenog
             introTextVect = new Vector2(600, 500);
             //CUTSCENE 1
             scriptNum = 1;
-            scriptText = " Zy: Have any enemies reached the walls yet?";
             cutsceneText = "";
             g = 0;
             d = 0;
@@ -241,7 +240,7 @@ namespace SchoolZenog
             //CUTSCENE LOGIC
             if (gameState == Gamestate.cutscene)
             {
-                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && b == 0)/* || introTimer > 1200*/)
+                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && b == 0) || (introTimer > 1200 && b == 0))
                 {
                     b = 1;
                     introTimer = 2000;
@@ -288,20 +287,24 @@ namespace SchoolZenog
                 //ACTUAL CUTSCENES LOGIC
                 if (b > 0)
                 {
-                    Console.WriteLine(scriptNum);
-                    Console.WriteLine(d);
+                    if(b==1 && scriptNum == 1)
+                        scriptText = " Zy: Have any enemies reached the walls yet?";
+                    if(b==2 && scriptNum == 1)
+                        scriptText = " Nomi: Now we just have to wait and \n       take them down as they come out";
+                    Console.WriteLine("scriptNum = "+scriptNum);
+                    Console.WriteLine("d = "+d);
+                    Console.WriteLine("introTimer = " + introTimer);
+                    Console.WriteLine("b = " + b);
                     if (g == scriptText.Length)
                         nextColor = Color.White;
-                    else if (scriptNum == 7)
+                    else if (scriptNum == 7 || scriptNum == 13)
                         nextColor = new Color(0,0,0,0);
                     else
                         nextColor = Color.Gray;
-                    if (scriptNum == 3)
-                        scriptText = " Nomi: Ryan said that they have not left \n    the portal yet so we are ahead of schedule";
-                    if (scriptNum == 5)
-                        scriptText = " Zy: Race you there!";
                     if (introTimer > 2100 && d < 255 && introTimer < 2400)
                     {
+                        a = 1f;
+                        cutsceneTextColor = new Color(new Vector4(a, a, a, a));
                         d += 2;
                         cutsceneColor = new Color(d, d, d);
                     }
@@ -313,63 +316,80 @@ namespace SchoolZenog
                         skipRect = new Rectangle(1600, 800, 100, 50);
                         skipText = "NEXT";
                     }
-                    if (g == scriptText.Length && mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && a > .5f && scriptNum < 8)
+                    if (g == scriptText.Length && mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && a > .5f && scriptNum < 14)
                     {
                         scriptNum++;
                         g = 0;
                         cutsceneText = "";
                     }
-                    if (scriptNum % 2 == 0 && scriptNum < 8)
+                    if (scriptNum % 2 == 0 && scriptNum < 14)
                     {
                         a -= .05f;
                         cutsceneTextColor = new Color(new Vector4(a, a, a, a));
                         if (a < .05f)
                             scriptNum++;
                     }
-                    if (scriptNum > 2 && scriptNum % 2 != 0 && scriptNum < 7)
+                    if (scriptNum > 2 && scriptNum % 2 != 0 && scriptNum < 13)
                     {
-
                         a = 1f;
                         cutsceneTextColor = new Color(new Vector4(a, a, a, a));
-                        if (g < scriptText.Length)
+                        if (g < scriptText.Length && scriptNum != 7 && b == 1)
+                        {
+                            cutsceneText = cutsceneText + char.ToString(scriptText[g]);
+                            g++;
+                        }
+                        if (g < scriptText.Length && b == 2)
                         {
                             cutsceneText = cutsceneText + char.ToString(scriptText[g]);
                             g++;
                         }
                     }
-                    if(scriptNum == 7)
+                    if(b == 1)
                     {
-                        d -= 2;
-                        cutsceneColor = new Color(d, d, d);
-                        if (d <= 0)
-                            scriptNum = 8;
+                        if (scriptNum == 3)
+                            scriptText = " Nomi: Ryan said that they have not left \n       the portal yet so we are ahead of schedule";
+                        if (scriptNum == 5)
+                            scriptText = " Zy: Race you there!";
+                        if (scriptNum == 7)
+                        {
+                            d -= 2;
+                            cutsceneColor = new Color(d, d, d);
+                            if (d <= 0)
+                                scriptNum = 8;
+                        }
+                        if (scriptNum == 8)
+                        {
+                            b = 2;
+                            introTimer = 2000;
+                            scriptNum = 1;
+                            g = 0;
+                        }
                     }
-                    if (scriptNum == 8)
+                    if (b == 2)
                     {
-                        b = 2;
-                        introTimer = 2000;
-                        scriptNum = 3;
-                        g = 0;
-                    }
-
-                }
-                if(b==2)
-                {
-                    if (scriptNum == 3)
-                        scriptText = " Nomi: Now we just have to wait and \n    take them down as they come out";
-                    if (scriptNum == 5)
-                        scriptText = " Zy: Or we can go in there and stop them \n    before they even get the chance to touch grass";
-                    if (scriptNum == 11)
-                        scriptText = " Nomi: No human has ever entered a portal before...";
-                    if (scriptNum == 13)
-                        scriptText = " Zy: Then we will be the first \n (Zy begins to run towards the portal)";
-                    if (scriptNum == 15)
-                        scriptText = " Nomi: Those aren't the orders!";
-                    if (scriptNum == 17)
-                    {
-                        gameState = Gamestate.loading;
-                        introText = "LOADING";
-                        introTimer = 5000;
+                        if (scriptNum == 3)
+                            scriptText = " Zy: Or we can go in there and stop them \n     before they even get the chance to touch grass";
+                        if (scriptNum == 5)
+                            scriptText = " Nomi: No human has ever entered a portal before...";
+                        if (scriptNum == 7)
+                            scriptText = " Zy: Then we will be the first";
+                        if (scriptNum == 9)
+                            scriptText = " (Zy begins to run towards the portal)";
+                        if(scriptNum == 11)
+                            scriptText = " Nomi: Those aren't the orders!";
+                        if (scriptNum == 13)
+                        {
+                            d -= 2;
+                            cutsceneColor = new Color(d, d, d);
+                            if (d <= 0)
+                                scriptNum = 14;
+                        }
+                        if (scriptNum == 14)
+                        {
+                            gameState = Gamestate.loading;
+                            introText = "LOADING";
+                            introTimer = 5000;
+                        }
                     }
                 }
             }
@@ -679,9 +699,12 @@ namespace SchoolZenog
                     spriteBatch.DrawString(Font1, introText, introTextVect, introTextColor);
                 }
                 //SECOND PART
-                if (b == 1)
+                if (b > 0)
                 {
-                    spriteBatch.Draw(cutscene1, new Rectangle(0, 0, 1920, 1080), cutsceneColor);
+                    if(b==1)
+                        spriteBatch.Draw(cutscene1, new Rectangle(0, 0, 1920, 1080), cutsceneColor);
+                    if(b==2)
+                        spriteBatch.Draw(cutscene2, new Rectangle(0, 0, 1920, 1080), cutsceneColor);
                     spriteBatch.Draw(whiteText, cutsceneTextRect, new Color(0, 0, 0, d - 100));
                     spriteBatch.DrawString(tinyFont, cutsceneText, new Vector2(100, 800), cutsceneTextColor);
                     if (introTimer > 2300)
