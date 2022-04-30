@@ -139,6 +139,42 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogCutscene2.xnb</Output>
       <Time>2022-04-29T20:24:23.6310762-05:00</Time>
     </Item>
+    <Item>
+      <Source>zenogHud.png</Source>
+      <Name>zenogHud</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHud.xnb</Output>
+      <Time>2022-04-30T12:44:46.225442-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zenogHudH.png</Source>
+      <Name>zenogHudH</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudH.xnb</Output>
+      <Time>2022-04-30T12:47:19.4681706-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zenogHudB.png</Source>
+      <Name>zenogHudB</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudB.xnb</Output>
+      <Time>2022-04-30T12:47:19.5361405-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zenogHudG.png</Source>
+      <Name>zenogHudG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudG.xnb</Output>
+      <Time>2022-04-30T12:55:45.9367363-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3C333FFA-18B7-4572-AC2D-1572B0D35DA5}</ContentProjectGUID>

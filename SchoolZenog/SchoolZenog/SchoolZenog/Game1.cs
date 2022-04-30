@@ -20,7 +20,8 @@ namespace SchoolZenog
         Rectangle destRect, backgroundSourceRect, backgroundDestRect, rangerSourceRect, rangerDestRect, projectileSourceRect, projectileRect,
             zyGreen, zyBlack, rangerGreen, startRect, settingsRect, quitRect, mouseRect,
             volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect;
-        Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText;
+        Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText,
+            hudText, zyGreenText, zyBlueText, hudGray;
         bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum;
         double backX, rangerX, projectileX, x;
@@ -132,6 +133,10 @@ namespace SchoolZenog
             cutscene1 = Content.Load<Texture2D>("zenogCutscene2");
             cutscene2 = Content.Load<Texture2D>("zenogCutscene1");
             bubbleText = Content.Load<Texture2D>("Bubble");
+            zyBlueText = Content.Load<Texture2D>("zenogHudB");
+            zyGreenText = Content.Load<Texture2D>("zenogHudH");
+            hudGray = Content.Load<Texture2D>("zenogHudG");
+            hudText = Content.Load<Texture2D>("zenogHud");
 
             //MUSIC
             homeMusic = Content.Load<Song>("Sarabande_Full_Mix");
@@ -190,7 +195,7 @@ namespace SchoolZenog
                     startColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(startRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                 {
-                    gameState = Gamestate.cutscene;
+                    gameState = Gamestate.play; //CHANGE THIS TO CUTSCENE LATER BUT THIS IS JUST FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
                 }
                 //SETTINGS
                 if (mouseRect.Intersects(settingsRect))
@@ -548,7 +553,6 @@ namespace SchoolZenog
                     if (zy.currentAnime.Equals(Animated.ult))
                         zyShield = 0;
                     //RANGER
-                    /*
                     if (rangerHealth > 0)
                     {
                         //RANGER HEALTHBAR
@@ -585,7 +589,6 @@ namespace SchoolZenog
                             projectileTimer++;
                         }
                     }
-                    */
                 }
             }
             //END OF FRAME
@@ -604,6 +607,7 @@ namespace SchoolZenog
             //PLAYING
             if (gameState == Gamestate.play)
             {
+                //BACKGROUND
                 spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
                 //HITBOX
                 zy.DrawHitbox(spriteBatch, destRect, whiteText);
@@ -625,8 +629,10 @@ namespace SchoolZenog
                 if (rangerHealth > 0)
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
                 //HUD
-                spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
-                spriteBatch.Draw(whiteText, zyBlack, Color.LightBlue);
+                spriteBatch.Draw(zyGreenText, new Rectangle(0,0,1920,1080), Color.White);
+                spriteBatch.Draw(zyBlueText, new Rectangle(0, 0, 1920, 1080), Color.White);
+                spriteBatch.Draw(hudGray, new Rectangle(0, 0, 1920, 1080), Color.White);
+                spriteBatch.Draw(hudText, new Rectangle(0, 0, 1920, 1080), Color.White);
                 //PAUSED
                 if (paused)
                 {

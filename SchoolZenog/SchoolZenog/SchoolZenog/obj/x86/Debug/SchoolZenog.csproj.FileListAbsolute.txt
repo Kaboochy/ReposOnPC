@@ -103,3 +103,7 @@ C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Co
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Bubble.xnb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogCutscene1.xnb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogCutscene2.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHud.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudH.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudB.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudG.xnb
