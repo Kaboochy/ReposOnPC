@@ -15,9 +15,9 @@ namespace SchoolZenog
     {
         KeyboardState kb, oldKb = new KeyboardState();
         MouseState mouse, oldMouse = new MouseState();
-
-        // fruit should just shut up
-
+        public int combo = 0;
+        public bool shield = false;
+        public bool ult;
         public Zy(Texture2D tex)
         {
             for (int i = 0; i < 5; i++)
@@ -137,22 +137,36 @@ namespace SchoolZenog
             {
                 currentAnime = Animated.run;
             }
-            //attack
-            if (mouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton == ButtonState.Released && stop == 0)
+            //attack 2
+            if (mouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton == ButtonState.Released && stop == 0 && combo == 0)
             {
                 currentAnime = Animated.attack21;
                 stop = 1;
             }
+            if ((mouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton == ButtonState.Released && stop == 0 && combo != 0) 
+                || (combo == 1 && lastAnime == Animated.attack21 && currentFrame > 3))
+            {
+                currentAnime = Animated.attack22;
+                stop = 1;
+            }
+            if ((mouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton == ButtonState.Released && stop == 0 && combo != 0) 
+                || (combo == 2 && lastAnime == Animated.attack22 && currentFrame > 2))
+            {
+                currentAnime = Animated.attack23;
+                stop = 1;
+            }
+            if (kb.IsKeyDown(Keys.A) || kb.IsKeyDown(Keys.D) || lastAnime == Animated.idle)
+            {
+                combo = 0;
+            }
+
             //Jump
             if (kb.IsKeyDown(Keys.Space) && oldKb.IsKeyUp(Keys.Space))
             {
                 currentAnime = Animated.jump;
                 stop = 2;
             }
-            //frame update
-            up();
-            if (stop == 1 && currentFrame + 1 == Number() ||
-                stop == 2 && currentFrame + 1 == Number() && destRect.Y >= 750)
+            if (stop == 1 && currentFrame + 1 == Number() || stop == 2 && currentFrame + 1 == Number() && destRect.Y >= 750 || (stop == 3 && mouse.RightButton == ButtonState.Released))
             {
                 stop = 0;
                 destRect.Y = 750;
@@ -161,16 +175,28 @@ namespace SchoolZenog
             {
                 currentFrame--;
             }
-            if (stop == 2 && currentFrame + 1 == Number() && destRect.Y >= 750)
+            //Block
+            if (mouse.RightButton == ButtonState.Pressed && stop == 0 && shield)
+            {
+                stop = 3;
+                currentAnime = Animated.blockS;
+            }
+            if (mouse.RightButton == ButtonState.Pressed && stop == 3 && !shield)
             {
                 stop = 0;
+                currentAnime = Animated.idle;
             }
-            if(stop == 2 && currentFrame + 1 == Number() && destRect.Y < 750)
+            //Ult
+            if (kb.IsKeyDown(Keys.Q) && ult == true)
             {
-                currentFrame--;
+                stop = 5;
+                currentAnime = Animated.ult;
             }
-            // hitbox logic
-
+            if (stop == 5 && currentFrame == 7)
+                stop = 0;
+            //frame update
+            up();
+            //Other
             oldKb = kb;
             oldMouse = mouse;
             lastAnime = currentAnime;

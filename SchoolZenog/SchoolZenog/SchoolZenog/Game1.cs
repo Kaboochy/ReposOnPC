@@ -18,14 +18,14 @@ namespace SchoolZenog
         KeyboardState oldKB, kb;
         MouseState oldmouse, mouse;
         Rectangle destRect, backgroundSourceRect, backgroundDestRect, rangerSourceRect, rangerDestRect, projectileSourceRect, projectileRect,
-            zyGreen, rangerGreen, startRect, settingsRect, quitRect, mouseRect,
-            volumeBar, volumeSlider, backRect, skipRect;
-        Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art;
+            zyGreen, zyBlack, rangerGreen, startRect, settingsRect, quitRect, mouseRect,
+            volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect;
+        Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText;
         bool fire, projectileTimerBool, paused, settings;
-        int frames, projectileTimer, rangerHealth, zyHealth, introTimer, r;
+        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g;
         double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
-            skipText, introText;
+            skipText, introText, scriptText, cutsceneText;
         float volume;
         Vector2 introTextVect;
         Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor;
@@ -50,8 +50,11 @@ namespace SchoolZenog
             //Zy
             destRect = new Rectangle(800, 750, 300, 300);
             zyGreen = new Rectangle(50, 50, 500, 50);
+            zyBlack = new Rectangle(50, 110, 500, 50);
             zyColor = new Color(255, 255, 255);
             zyHealth = 1000;
+            zyShield = 1000;
+            bubbleRect = new Rectangle(780, 780, 225, 300);
             //Bachground
             backgroundSourceRect = new Rectangle(0, 0, 800, 450);
             backgroundDestRect = new Rectangle(0, 0, 1920, 1080);
@@ -98,6 +101,11 @@ namespace SchoolZenog
             r = 0;
             introTimer = 0;
             introTextVect = new Vector2(600, 500);
+            //CUTSCENE 1
+            scriptText = "I THINK HAMBURGERS AND FRIES WORK WELL WITH COKE";
+            cutsceneText = "";
+            g = 0;
+            cutsceneTextRect = new Rectangle(0, 1620, 1920, 300);
             //Else
             frames = 0;
             oldmouse = Mouse.GetState();
@@ -115,6 +123,9 @@ namespace SchoolZenog
             blackText = Content.Load<Texture2D>("Rectangle");
             whiteText = Content.Load<Texture2D>("White_Square");
             art = Content.Load<Texture2D>("Start_Screen");
+            cutscene1 = Content.Load<Texture2D>("zenogCutscene2");
+            cutscene2 = Content.Load<Texture2D>("zenogCutscene1");
+            bubbleText = Content.Load<Texture2D>("Bubble");
 
             //MUSIC
             homeMusic = Content.Load<Song>("Sarabande_Full_Mix");
@@ -150,6 +161,7 @@ namespace SchoolZenog
             mouseRect.X = mouse.X;
             mouseRect.Y = mouse.Y;
             zyGreen.Width = zyHealth;
+            zyBlack.Width = zyShield;
             //GAMESTATES
             if (gameState == Gamestate.cutscene && introTimer == 1)
             {
@@ -222,13 +234,14 @@ namespace SchoolZenog
             //CUTSCENE LOGIC
             if (gameState == Gamestate.cutscene)
             {
-                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released) || introTimer > 1200)
+                if ((mouseRect.Intersects(skipRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)/* || introTimer > 1200*/)
                 {
                     gameState = Gamestate.loading;
                     introText = "LOADING";
                     introTimer = 0;
                 }
                 introTimer++;
+                //STORY BACKGROUND INFORMATION LOGIC
                 if (introTimer > 60 && introTimer < 200 && r < 250)
                 {
                     r += 2;
@@ -262,6 +275,17 @@ namespace SchoolZenog
                 {
                     r -= 5;
                     introTextColor = new Color(r, r, r);
+                }
+                //ACTUAL CUTSCENES LOGIC
+                if (introTimer > 1200)
+                {
+                    r++;
+                    introTextColor = new Color(r, r, r);
+                }
+                if (introTimer > 1300 && frames % 45 == 0 && g < scriptText.Length - 1)
+                {
+                    cutsceneText = cutsceneText + char.ToString(scriptText[g]);
+                    g++;
                 }
             }
             //LOADING LOGIC
@@ -336,15 +360,12 @@ namespace SchoolZenog
                 //NOT PAUSED GAME
                 if (!paused)
                 {
-                    //IsMouseVisible = false; //DOESNT WORK WITH GREATER THAN 60 FPS
                     frames++;
-                    //MOVEMENT
-                    if (frames % 7 == 0)
-                        zy.Update(kb, mouse, destRect);
+                    //IsMouseVisible = false; //DOESNT WORK WITH GREATER THAN 60 FPS
                     //STOP 0 = Movement and idle
                     //STOP 1 = Attacking
                     //STOP 2 = Jumping
-                    if (zy.stop != 1 && zy.stop != -1)
+                    if (zy.stop != 1 && zy.stop != 3)
                     {
                         //RIGHT
                         if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
@@ -390,7 +411,6 @@ namespace SchoolZenog
                         }
                         else
                             x = 0;
-
                     }
                     //DEALING DAMAGE
                     if (zy.Hit(destRect, rangerDestRect))
@@ -398,7 +418,32 @@ namespace SchoolZenog
                         rangerHealth -= 20;
                         rangerColor = Color.Red;
                     }
+                    //COMBO LOGIC
+                    if (mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && zy.stop == 1)
+                    {
+                        if (zy.combo == 0 && zy.lastAnime.Equals(Animated.attack21))
+                            zy.combo = 1;
+                        else if (zy.combo == 1 && zy.lastAnime.Equals(Animated.attack22))
+                            zy.combo = 2;
+                    }
+                    //SHIELDING LOGIC
+                    if (zyShield > 150)
+                        zy.shield = true;
+                    if (zy.currentAnime.Equals(Animated.blockS) && zyShield > 0)
+                        zyShield -= 10;
+                    if (!zy.currentAnime.Equals(Animated.blockS) && zyShield < 1000)
+                        zyShield++;
+                    if (zyShield <= 0)
+                        zy.shield = false;
+                    //ULTIMATE
+                    if (zyShield >= 1000)
+                        zy.ult = true;
+                    else
+                        zy.ult = false;
+                    if (zy.currentAnime.Equals(Animated.ult))
+                        zyShield = 0;
                     //RANGER
+                    /*
                     if (rangerHealth > 0)
                     {
                         //RANGER HEALTHBAR
@@ -435,12 +480,15 @@ namespace SchoolZenog
                             projectileTimer++;
                         }
                     }
+                    */
                 }
             }
             //END OF FRAME
             oldKB = kb;
             oldmouse = mouse;
             oldState = gameState;
+            if (frames % 7 == 0)
+                zy.Update(kb, mouse, destRect);
             base.Update(gameTime);
         }
 
@@ -463,34 +511,23 @@ namespace SchoolZenog
                 }
                 //ZY
                 zy.Draw(spriteBatch, destRect, zyColor);
+                //SHIELD
+                if (zy.currentAnime.Equals(Animated.blockS))
+                {
+                    spriteBatch.Draw(bubbleText, bubbleRect, new Color(0, 0, 0, 155));
+                }
                 //PROJECTILE
                 if (rangerHealth > 0)
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
                 //HUD
                 spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
-            }
-            //PAUSED
-            if (gameState == Gamestate.play && paused == true)
-            {
-                spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
-                //ranger ENEMY
-                if (rangerHealth > 0)
-                {
-                    spriteBatch.Draw(rangerText, rangerDestRect, rangerSourceRect, rangerColor);
-                    spriteBatch.Draw(whiteText, rangerGreen, Color.LimeGreen);
-                }
-                //ZY
-                zy.Draw(spriteBatch, destRect, zyColor);
-                //PROJECTILE
-                if (rangerHealth > 0)
-                    spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
-                //HUD
-                //spriteBatch.Draw(whiteText, zyGreen, Color.LimeGreen);
+                spriteBatch.Draw(whiteText, zyBlack, Color.LightBlue);
+                //PAUSED
                 if (paused)
                 {
                     spriteBatch.Draw(whiteText, new Rectangle(0, 0, 1920, 1080), new Color(0, 0, 0, 155));
                 }
-                if (settings == false)
+                if (settings == false && paused)
                 {
                     //START BOX
                     spriteBatch.Draw(whiteText, startRect, startColor);
@@ -529,7 +566,7 @@ namespace SchoolZenog
             //SETTINGS
             if (settings)
             {
-                if (paused == false)
+                if (gameState == Gamestate.home)
                 {
                     //BACKGROUND
                     spriteBatch.Draw(art, new Rectangle(0, 0, 1920, 1080), new Color(100, 100, 150, 1));
@@ -550,8 +587,17 @@ namespace SchoolZenog
             //CUTSCENE
             if (gameState == Gamestate.cutscene)
             {
+                //FIRST PART
                 spriteBatch.DrawString(tinyFont, skipText, new Vector2(1750, 960), Color.Gray);
                 spriteBatch.DrawString(Font1, introText, introTextVect, introTextColor);
+                //SECOND PART
+                if (introTimer > 1200)
+                {
+                    spriteBatch.Draw(cutscene1, new Rectangle(0, 0, 1920, 1080), introTextColor);
+                    spriteBatch.Draw(whiteText, cutsceneTextRect, introTextColor);
+                    spriteBatch.DrawString(tinyFont, cutsceneText, new Vector2(100, 500), Color.White);
+                }
+                //THIRD PART
             }
             //LOADING
             if (gameState == Gamestate.loading)
