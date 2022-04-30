@@ -21,10 +21,10 @@ namespace SchoolZenog
             rangerGreen, startRect, settingsRect, quitRect, mouseRect,
             volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect, zyGreenRect, zyBlueRect;
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText,
-            hudText, zyGreenText, zyBlueText, hudGray;
+            hudText, zyGreenText, zyBlueText, hudGray, zyGreenRText;
         bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, enemiesRemaining;
-        double backX, rangerX, projectileX, x, greenX, blueX;
+        double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
             skipText, introText, scriptText, cutsceneText;
         float volume, a;
@@ -58,10 +58,8 @@ namespace SchoolZenog
             backgroundSourceRect = new Rectangle(0, 110,1920, 1080);
             backgroundDestRect = new Rectangle(0, 0, 1920, 1080);
             //HUD
-            greenX = 0;
-            blueX = 0;
-            zyGreenRect = new Rectangle((int)greenX, 0, 1920, 1080);
-            zyBlueRect = new Rectangle((int)blueX, 0, 1920, 1080);
+            zyGreenRect = new Rectangle(260, 0, 1920, 1080);
+            zyBlueRect = new Rectangle(247, 0, 1920, 1080);
             //ranger
             rangerSourceRect = new Rectangle(0, 0, 50, 50);
             rangerDestRect = new Rectangle((int)rangerX, 820, 200, 200);
@@ -138,7 +136,8 @@ namespace SchoolZenog
             cutscene2 = Content.Load<Texture2D>("zenogCutscene1");
             bubbleText = Content.Load<Texture2D>("Bubble");
             zyBlueText = Content.Load<Texture2D>("zenogHudB");
-            zyGreenText = Content.Load<Texture2D>("zenogHudH");
+            zyGreenText = Content.Load<Texture2D>("zenogHudHLarge");
+            zyGreenRText = Content.Load<Texture2D>("zenogHudHSmall");
             hudGray = Content.Load<Texture2D>("zenogHudG");
             hudText = Content.Load<Texture2D>("zenogHud");
 
@@ -177,8 +176,6 @@ namespace SchoolZenog
             mouseRect.Y = mouse.Y;
             zyGreenRect.Width = zyHealth;
             zyBlueRect.Width = zyShield;
-            zyGreenRect.X = (int)greenX;
-            zyBlueRect.X = (int)blueX;
             //GAMESTATES
             if (gameState == Gamestate.cutscene && introTimer == 1)
             {
@@ -558,7 +555,7 @@ namespace SchoolZenog
                     if (!zy.currentAnime.Equals(Animated.blockS) && zyShield < 1920)
                     {
                         zyShield += 2;
-                        //blueX -= (int).5;
+                        //blueX -= (int).3;
                     }  
                     if (zyShield <= 0)
                         zy.shield = false;
@@ -580,7 +577,7 @@ namespace SchoolZenog
                         if (rangerX < 1500)
                         {
                             rangerSourceRect.X = 50;
-                            if ((projectileTimer % 300 == 0) || projectileTimer == 0)
+                            if ((projectileTimer % 200 == 0) || projectileTimer == 0)
                             {
                                 fire = true;
                                 projectileTimerBool = true;
@@ -589,7 +586,7 @@ namespace SchoolZenog
                         //RANGER SHOOTING
                         if (fire)
                         {
-                            projectileX -= 5;
+                            projectileX -= 10;
                             List<Rectangle> hit = zy.Retrive(destRect);
                             for (int i = 0; i < hit.Count; i++)
                             {
@@ -597,6 +594,7 @@ namespace SchoolZenog
                                 {
                                     fire = false;
                                     projectileX = rangerX + 30;
+                                    zyHealth -= 300;
                                 }
                             }
                         }
@@ -646,10 +644,12 @@ namespace SchoolZenog
                 if (rangerHealth > 0)
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
                 //HUD
-                spriteBatch.Draw(zyGreenText, zyGreenRect, Color.White);
-                spriteBatch.Draw(zyBlueText, zyBlueRect, Color.White);
+                spriteBatch.Draw(zyGreenRText, new Rectangle(221, 0, 1920, 1080), new Rectangle(221, 0, 1920, 1080), Color.White);
+                spriteBatch.Draw(zyGreenText, zyGreenRect, new Rectangle(260, 0, 1920, 1080), Color.White);
+                spriteBatch.Draw(zyBlueText, zyBlueRect, new Rectangle(247,0,1920,1080), Color.White);
                 spriteBatch.Draw(hudGray, new Rectangle(0, 0, 1920, 1080), Color.White);
                 spriteBatch.Draw(hudText, new Rectangle(0, 0, 1920, 1080), Color.White);
+                //spriteBatch.Draw(whiteText, new Rectangle(260,53,5,30), Color.Black);
                 //PAUSED
                 if (paused)
                 {

@@ -149,15 +149,6 @@
       <Time>2022-04-30T12:44:46.225442-05:00</Time>
     </Item>
     <Item>
-      <Source>zenogHudH.png</Source>
-      <Name>zenogHudH</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudH.xnb</Output>
-      <Time>2022-04-30T12:47:19.4681706-05:00</Time>
-    </Item>
-    <Item>
       <Source>zenogHudB.png</Source>
       <Name>zenogHudB</Name>
       <Importer>TextureImporter</Importer>
@@ -183,6 +174,24 @@
       <Options>None</Options>
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\finalBackground2.xnb</Output>
       <Time>2022-04-30T15:55:37.1410253-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zenogHudHLarge.png</Source>
+      <Name>zenogHudHLarge</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudHLarge.xnb</Output>
+      <Time>2022-04-30T17:27:25.5025629-05:00</Time>
+    </Item>
+    <Item>
+      <Source>zenogHudHSmall.png</Source>
+      <Name>zenogHudHSmall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudHSmall.xnb</Output>
+      <Time>2022-04-30T17:30:33.7789406-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

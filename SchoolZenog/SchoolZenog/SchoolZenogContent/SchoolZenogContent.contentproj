@@ -220,8 +220,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="zenogHudH.png">
-      <Name>zenogHudH</Name>
+    <Compile Include="zenogHudHLarge.png">
+      <Name>zenogHudHLarge</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -243,6 +243,13 @@
   <ItemGroup>
     <Compile Include="finalBackground2.jpg">
       <Name>finalBackground2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="zenogHudHSmall.png">
+      <Name>zenogHudHSmall</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
