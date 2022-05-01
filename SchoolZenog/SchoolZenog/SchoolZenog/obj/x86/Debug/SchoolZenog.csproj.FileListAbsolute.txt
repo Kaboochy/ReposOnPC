@@ -44,8 +44,6 @@ C:\Users\jacob\Source\Repos\SchoolZenog\SchoolZenog\SchoolZenog\SchoolZenog\bin\
 C:\Users\jacob\Source\Repos\SchoolZenog\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
 C:\Users\jacob\Source\Repos\SchoolZenog\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.exe
 C:\Users\jacob\Source\Repos\SchoolZenog\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.pdb
-C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.exe
-C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.pdb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.csprojAssemblyReference.cache
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.csproj.CoreCompileInputs.cache
@@ -54,8 +52,6 @@ C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Co
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Start_Screen.xnb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\TestBackground.xnb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\White_Square.xnb
-C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\SchoolZenog.exe
-C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\SchoolZenog.pdb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Microsoft.Xna.Framework.dll
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
@@ -114,3 +110,7 @@ C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Co
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Zy_ult.txt
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Zy_walk.txt
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\logo.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\SchoolZenog.exe
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\SchoolZenog.pdb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.exe
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.pdb
