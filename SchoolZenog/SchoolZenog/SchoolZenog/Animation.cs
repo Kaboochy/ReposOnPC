@@ -57,7 +57,7 @@ namespace SchoolZenog
                 hit = flip(hitbox);
                 for (int i = 0; i < hitbox.Count; i++)
                 {
-                    rects.Add(new Rectangle(hit[i].X * a + (int)location.X, hit[i].Y * a + (int)location.Y, hit[i].Width * a, hit[i].Height * a));
+                    rects.Add(new Rectangle(hit[i].X * (int).8*a + location.X, hit[i].Y * a + location.Y, hit[i].Width * a, hit[i].Height * a));
                 }
             }
             return rects;
@@ -67,7 +67,7 @@ namespace SchoolZenog
             List<Rectangle> hit = new List<Rectangle>();
             for (int i = 0; i < hitbox.Count; i++)
             {
-                hit.Add(new Rectangle((size - hitbox[i].X + hitbox[i].Width) - 70, hitbox[i].Y, hitbox[i].Width, hitbox[i].Height));
+                hit.Add(new Rectangle((size - hitbox[i].X + hitbox[i].Width), hitbox[i].Y, hitbox[i].Width, hitbox[i].Height));
             }
             return hit;
         }

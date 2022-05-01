@@ -22,6 +22,10 @@ Content\zenogHudG.xnb
 Content\finalBackground2.xnb
 Content\zenogHudHLarge.xnb
 Content\zenogHudHSmall.xnb
+Content\BackAlleyBusiness.xnb
+Content\BackAlleyBusiness.wma
+Content\PaintTheTownBlack.xnb
+Content\PaintTheTownBlack.wma
 Content\Zy_attack11.txt
 Content\Zy_attack12.txt
 Content\Zy_attack13.txt

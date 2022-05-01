@@ -23,10 +23,11 @@ namespace SchoolZenog
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText,
             hudText, zyGreenText, zyBlueText, hudGray, zyGreenRText;
         bool fire, projectileTimerBool, paused, settings;
-        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, enemiesRemaining;
+        int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, 
+            enemiesDefeated, score;
         double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
-            skipText, introText, scriptText, cutsceneText;
+            skipText, introText, scriptText, cutsceneText, enemiesDefeatedText, scoreText, timeText;
         float volume, a;
         Vector2 introTextVect;
         Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor, cutsceneColor, cutsceneTextColor, nextColor;
@@ -55,11 +56,16 @@ namespace SchoolZenog
             zyShield = 1920;
             bubbleRect = new Rectangle(780, 780, 225, 300);
             //Bachground
-            backgroundSourceRect = new Rectangle(0, 110,1920, 1080);
+            backgroundSourceRect = new Rectangle(200, 110, 1920, 1080);
             backgroundDestRect = new Rectangle(0, 0, 1920, 1080);
             //HUD
             zyGreenRect = new Rectangle(260, 0, 1920, 1080);
             zyBlueRect = new Rectangle(247, 0, 1920, 1080);
+            enemiesDefeated = 1;
+            enemiesDefeatedText = "Takedowns: " + enemiesDefeated;
+            score = 0;
+            scoreText = "Score: " + score;
+            timeText = "" + frames % 60;
             //ranger
             rangerSourceRect = new Rectangle(0, 0, 50, 50);
             rangerDestRect = new Rectangle((int)rangerX, 820, 200, 200);
@@ -68,7 +74,6 @@ namespace SchoolZenog
             rangerX = 2000;
             rangerHealth = 100;
             fire = false;
-            enemiesRemaining = 1;
             //projectile
             projectileSourceRect = new Rectangle(0, 200, 50, 50);
             projectileRect = new Rectangle((int)projectileX, 870, 120, 120);
@@ -142,9 +147,9 @@ namespace SchoolZenog
             hudText = Content.Load<Texture2D>("zenogHud");
 
             //MUSIC
-            homeMusic = Content.Load<Song>("Sarabande_Full_Mix");
-            introMusic = Content.Load<Song>("Odd_Exploitation_Synth_Stem");
-            gameMusic = Content.Load<Song>("Odd_Exploitation_Full_Mix");
+            homeMusic = Content.Load<Song>("PaintTheTownBlack"); //OLD ("Sarabande_Full_Mix"); 
+            introMusic = Content.Load<Song>("Odd_Exploitation_Synth_Stem"); //OLD ("Odd_Exploitation_Synth_Stem");
+            gameMusic = Content.Load<Song>("BackAlleyBusiness"); //OLD ("Odd_Exploitation_Full_Mix");
             MediaPlayer.Play(homeMusic);
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Volume = volume;
@@ -198,7 +203,7 @@ namespace SchoolZenog
                     startColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(startRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                 {
-                    gameState = Gamestate.play; //CHANGE THIS TO CUTSCENE LATER BUT THIS IS JUST FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+                    gameState = Gamestate.cutscene; //CHANGE THIS TO CUTSCENE LATER BUT THIS IS JUST FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
                 }
                 //SETTINGS
                 if (mouseRect.Intersects(settingsRect))
@@ -480,14 +485,13 @@ namespace SchoolZenog
                     //STOP 0 = Movement and idle
                     //STOP 1 = Attacking
                     //STOP 2 = Jumping
-                    if (zy.stop != 1 && zy.stop != 3)
+                    if (zy.stop != 1 && zy.stop != 3 && zy.stop != 6 && zy.stop != 4)
                     {
-                        //BACKGROUND LOOPING LOGIC
-                        if (backX >= 1280)
-                            backX = 0;
                         //RIGHT
                         if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
                         {
+                            if (backX >= 1280)
+                                backX = 0;
                             destRect.X = 800;
                             if (kb.IsKeyDown(Keys.LeftShift))
                             {
@@ -505,6 +509,8 @@ namespace SchoolZenog
                         //LEFT
                         if (kb.IsKeyDown(Keys.A) && !kb.IsKeyDown(Keys.D))
                         {
+                            if (backX <= 10)
+                                backX = 1290;
                             destRect.X = 710;
                             if (kb.IsKeyDown(Keys.LeftShift))
                             {
@@ -595,6 +601,7 @@ namespace SchoolZenog
                                     fire = false;
                                     projectileX = rangerX + 30;
                                     zyHealth -= 300;
+                                    zy.stop = 4;
                                 }
                             }
                         }
@@ -606,6 +613,17 @@ namespace SchoolZenog
                     }
                 }
             }
+            //HUD UPDATES
+            timeText = ""+frames / 60;
+            if(frames%600==0 && frames>599)
+            {
+                if (zyHealth == 1920)
+                    score += 50;
+                else
+                    score += 10;
+            }
+            //if an enemy is defeated, add 50 to the score
+            scoreText = "Score: " + score;
             //END OF FRAME
             oldKB = kb;
             oldmouse = mouse;
@@ -625,7 +643,7 @@ namespace SchoolZenog
                 //BACKGROUND
                 spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
                 //HITBOX
-                zy.DrawHitbox(spriteBatch, destRect, whiteText);
+                //zy.DrawHitbox(spriteBatch, destRect, whiteText);
 
                 //ranger ENEMY
                 if (rangerHealth > 0)
@@ -649,7 +667,9 @@ namespace SchoolZenog
                 spriteBatch.Draw(zyBlueText, zyBlueRect, new Rectangle(247,0,1920,1080), Color.White);
                 spriteBatch.Draw(hudGray, new Rectangle(0, 0, 1920, 1080), Color.White);
                 spriteBatch.Draw(hudText, new Rectangle(0, 0, 1920, 1080), Color.White);
-                //spriteBatch.Draw(whiteText, new Rectangle(260,53,5,30), Color.Black);
+                spriteBatch.DrawString(tinyFont, enemiesDefeatedText, new Vector2(1500, 50), Color.Black);
+                spriteBatch.DrawString(tinyFont, scoreText, new Vector2(1555, 150), Color.Black);
+                spriteBatch.DrawString(Font1, timeText, new Vector2(1300, 50), Color.Black);
                 //PAUSED
                 if (paused)
                 {

@@ -193,6 +193,26 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\zenogHudHSmall.xnb</Output>
       <Time>2022-04-30T17:30:33.7789406-05:00</Time>
     </Item>
+    <Item>
+      <Source>BackAlleyBusiness.mp3</Source>
+      <Name>BackAlleyBusiness</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\BackAlleyBusiness.xnb</Output>
+      <Extra>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\BackAlleyBusiness.wma</Extra>
+      <Time>2022-04-30T21:59:54.0377523-05:00</Time>
+    </Item>
+    <Item>
+      <Source>PaintTheTownBlack.mp3</Source>
+      <Name>PaintTheTownBlack</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\PaintTheTownBlack.xnb</Output>
+      <Extra>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\PaintTheTownBlack.wma</Extra>
+      <Time>2022-04-30T21:59:59.2699236-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3C333FFA-18B7-4572-AC2D-1572B0D35DA5}</ContentProjectGUID>

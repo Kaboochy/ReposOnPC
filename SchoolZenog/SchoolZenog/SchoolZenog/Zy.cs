@@ -194,6 +194,21 @@ namespace SchoolZenog
             }
             if (stop == 5 && currentFrame == 7)
                 stop = 0;
+            //TAKING DAMAGE
+            if(stop == 4)
+            {
+                currentAnime = Animated.fallingL;
+            }
+            if (stop == 4 && currentFrame + 1 == Number())
+            {
+                stop = 6;
+                currentAnime = Animated.recover;
+            }
+            if(stop == 6 && currentFrame == 6)
+            {
+                stop = 0;
+                currentAnime = Animated.idle;
+            }
             //frame update
             up();
             //Other
