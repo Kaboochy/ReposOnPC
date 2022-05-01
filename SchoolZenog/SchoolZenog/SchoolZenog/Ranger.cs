@@ -19,6 +19,7 @@ namespace SchoolZenog
         public int health = 100;
         int timer = 0;
         public Projectile mis;
+        public static new Animations anime = new Animations();
 
         public Ranger(int i)
         {
@@ -56,17 +57,18 @@ namespace SchoolZenog
             {
                 anime.idle.Add(new Animation(t, i, 2, 50, @"Content/Ranger/Ranger_Idle.txt"));
             }
+            /*
             for (int i = 0; i < 3; i++)
             {
                 anime.attack21.Add(new Animation(t, i, 3, 50, @"Content/Ranger/Ranger_Attack21.txt"));
             }
-
+            */
             for (int i = 0; i < 1; i++)
             {
                 Projectile.anime.attack11.Add(new Animation(t, i, 4, 50, @"Content/Ranger/Ranger_Projectile.txt"));
             }
         }
-        public void Update(Rectangle ZyDest, int move)
+        public void Update(Rectangle zDest, int move)
         {
             timer++;
             //idle
@@ -75,11 +77,11 @@ namespace SchoolZenog
                 currentAnime = Animated.idle;
             }
             //side
-            if (ZyDest.X < dest.X)
+            if (zDest.X < dest.X)
             {
                 right = false;
             }
-            if (ZyDest.X > dest.X)
+            if (zDest.X > dest.X)
             {
                 right = true;
             }
@@ -142,7 +144,7 @@ namespace SchoolZenog
         Rectangle dest;
         public static Texture2D tex;
         public Boolean isFired = false;
-
+        public static new Animations anime = new Animations();
         public Projectile()
         {
             dest = new Rectangle(0, 0, 150, 150);

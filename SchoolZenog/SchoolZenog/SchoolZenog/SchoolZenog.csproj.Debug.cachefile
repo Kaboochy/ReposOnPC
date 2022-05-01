@@ -22,6 +22,7 @@ Content\BackAlleyBusiness.xnb
 Content\PaintTheTownBlack.xnb
 Content\Zy_Sprite.xnb
 Content\logo.xnb
+Content\Ranger\Ranger_Sprite.xnb
 Content\Sarabande_Full_Mix.wma
 Content\Odd_Exploitation_Synth_Stem.wma
 Content\Odd_Exploitation_Full_Mix.wma
@@ -50,3 +51,8 @@ Content\Zy_recover.txt
 Content\Zy_run.txt
 Content\Zy_ult.txt
 Content\Zy_walk.txt
+Content\Ranger\Ranger_Attack11.txt
+Content\Ranger\Ranger_Idle.txt
+Content\Ranger\Ranger_Projectile.txt
+Content\Ranger\Ranger_ProjectileA.txt
+Content\Ranger\Ranger_Walk.txt

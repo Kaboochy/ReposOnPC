@@ -222,6 +222,18 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\logo.xnb</Output>
       <Time>2022-05-01T14:46:52.2136558-05:00</Time>
     </Item>
+<<<<<<< Updated upstream
+=======
+    <Item>
+      <Source>Ranger\Ranger_Sprite.png</Source>
+      <Name>Ranger\Ranger_Sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_Sprite.xnb</Output>
+      <Time>2022-05-01T18:17:11.258956-05:00</Time>
+    </Item>
+>>>>>>> Stashed changes
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3C333FFA-18B7-4572-AC2D-1572B0D35DA5}</ContentProjectGUID>

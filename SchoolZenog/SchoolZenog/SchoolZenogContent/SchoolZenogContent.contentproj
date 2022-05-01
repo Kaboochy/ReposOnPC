@@ -277,6 +277,36 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
+<<<<<<< Updated upstream
+=======
+  <ItemGroup>
+    <None Include="Ranger\Ranger_Attack11.txt">
+      <Name>Ranger_Attack11</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Ranger\Ranger_Idle.txt">
+      <Name>Ranger_Idle</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Ranger\Ranger_Projectile.txt">
+      <Name>Ranger_Projectile</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Ranger\Ranger_ProjectileA.txt">
+      <Name>Ranger_ProjectileA</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Ranger\Ranger_Sprite.png">
+      <Name>Ranger_Sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <None Include="Ranger\Ranger_Walk.txt">
+      <Name>Ranger_Walk</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+>>>>>>> Stashed changes
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

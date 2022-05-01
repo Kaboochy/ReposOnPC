@@ -114,3 +114,9 @@ C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Sc
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\SchoolZenog.pdb
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.exe
 C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\obj\x86\Debug\SchoolZenog.pdb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_Sprite.xnb
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_Attack11.txt
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_Idle.txt
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_Projectile.txt
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_ProjectileA.txt
+C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger\Ranger_Walk.txt

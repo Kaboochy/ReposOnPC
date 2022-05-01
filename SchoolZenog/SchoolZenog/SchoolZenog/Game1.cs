@@ -68,13 +68,15 @@ namespace SchoolZenog
             score = 0;
             scoreText = "Score: " + score;
             timeText = "" + frames % 60;
-            //ranger
+            //ranger 
+            /*
             rangerSourceRect = new Rectangle(0, 0, 50, 50);
             rangerDestRect = new Rectangle((int)rangerX, 820, 200, 200);
             rangerGreen = new Rectangle(50, 50, 500, 15);
             rangerColor = new Color(255, 255, 255);
             rangerX = 2000;
             rangerHealth = 100;
+            */
             fire = false;
             //projectile
             projectileSourceRect = new Rectangle(0, 200, 50, 50);
@@ -140,6 +142,8 @@ namespace SchoolZenog
             spriteBatch = new SpriteBatch(GraphicsDevice);
             zyText = Content.Load<Texture2D>("Zy_Sprite");
             rangerText = Content.Load<Texture2D>("Ranger_Sprite");
+            Ranger.SetRTex(Content.Load<Texture2D>("Ranger_Sprite"));
+            Ranger.prepAnime(Content.Load<Texture2D>("Ranger_Sprite"));
             backgroundText = Content.Load<Texture2D>("finalBackground2"); //USED TO BE --> ("TestBackground");
             blackText = Content.Load<Texture2D>("Rectangle");
             whiteText = Content.Load<Texture2D>("White_Square");
@@ -181,7 +185,7 @@ namespace SchoolZenog
             //GENERAL
             IsMouseVisible = true;
             backgroundSourceRect.X = (int)backX;
-            rangerDestRect.X = (int)rangerX;
+            //rangerDestRect.X = (int)rangerX;
             projectileRect.X = (int)projectileX;
             kb = Keyboard.GetState();
             mouse = Mouse.GetState();
@@ -537,14 +541,18 @@ namespace SchoolZenog
                             if (kb.IsKeyDown(Keys.LeftShift))
                             {
                                 backX += 5; //old = 1.5
+                                /*
                                 rangerX -= 5; //old = 3.55
                                 projectileX -= 5; //old = 3.55
+                                */
                             }
                             else
                             {
                                 backX += 2; //old = .7
+                                /*
                                 rangerX -= 2; //old = 1.65
                                 projectileX -= 2; //old = 1.65
+                                */
                             }
                         }
                         //LEFT
@@ -556,14 +564,18 @@ namespace SchoolZenog
                             if (kb.IsKeyDown(Keys.LeftShift))
                             {
                                 backX -= 5;
+                                /*
                                 rangerX += 5;
                                 projectileX += 5;
+                                */
                             }
                             else
                             {
                                 backX -= 2;
+                                /*
                                 rangerX += 2;
                                 projectileX += 2;
+                                */
                             }
                         }
                         //JUMPING
@@ -578,11 +590,13 @@ namespace SchoolZenog
                             x = 0;
                     }
                     //DEALING DAMAGE
+                    /*
                     if (zy.Hit(destRect, rangerDestRect))
                     {
                         rangerHealth -= 20;
                         rangerColor = Color.Red;
                     }
+                    */
                     //COMBO LOGIC
                     if (mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released && zy.stop == 1)
                     {
@@ -614,6 +628,7 @@ namespace SchoolZenog
                     if (zy.currentAnime.Equals(Animated.ult))
                         zyShield = 0;
                     //RANGER
+                    /*
                     if (rangerHealth > 0)
                     {
                         //RANGER HEALTHBAR
@@ -653,6 +668,7 @@ namespace SchoolZenog
                             projectileTimer++;
                         }
                     }
+                    */
                     //GAME ENDING
                     if (zyHealth <= 0)
                     {
@@ -753,11 +769,13 @@ namespace SchoolZenog
                 zy.DrawHitbox(spriteBatch, destRect, whiteText);
 
                 //ranger ENEMY
+                /*
                 if (rangerHealth > 0)
                 {
                     spriteBatch.Draw(rangerText, rangerDestRect, rangerSourceRect, rangerColor);
                     spriteBatch.Draw(whiteText, rangerGreen, Color.LimeGreen);
                 }
+                */
                 //ZY
                 zy.Draw(spriteBatch, destRect, zyColor);
                 //SHIELD
@@ -771,8 +789,10 @@ namespace SchoolZenog
                         
                 }
                 //PROJECTILE
+                /*
                 if (rangerHealth > 0)
                     spriteBatch.Draw(rangerText, projectileRect, projectileSourceRect, Color.White);
+                */
                 //HUD
                 spriteBatch.Draw(zyGreenRText, new Rectangle(221, 0, 1920, 1080), new Rectangle(221, 0, 1920, 1080), Color.White);
                 spriteBatch.Draw(zyGreenText, zyGreenRect, new Rectangle(260, 0, 1920, 1080), Color.White);
