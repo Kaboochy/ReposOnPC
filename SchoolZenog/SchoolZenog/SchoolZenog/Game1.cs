@@ -191,7 +191,7 @@ namespace SchoolZenog
                 MediaPlayer.Stop();
                 MediaPlayer.Play(introMusic);
             }
-            if (gameState == Gamestate.play && oldState == Gamestate.home)
+            if (gameState == Gamestate.play && (oldState == Gamestate.home || oldState == Gamestate.loading))
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(gameMusic);
@@ -314,12 +314,15 @@ namespace SchoolZenog
                         scriptText = " Zy: Have any enemies reached the walls yet?";
                     if(b==2 && scriptNum == 1)
                         scriptText = " Nomi: Now we just have to wait and \n       take them down as they come out";
-                    /* //DEBUGGING STUFF
+                    if (b == 3 && scriptNum == 1)
+                        scriptText = " Zy: HOW MANY DUDES CAN YOU FIT IN YOUR \n ASS AT ONCE";
+                     //DEBUGGING STUFF
                     Console.WriteLine("scriptNum = "+scriptNum);
                     Console.WriteLine("d = "+d);
                     Console.WriteLine("introTimer = " + introTimer);
                     Console.WriteLine("b = " + b);
-                    */
+                    Console.WriteLine(gameState);
+                    //TRANSITION LOGIC
                     if (g == scriptText.Length)
                         nextColor = Color.White;
                     else if (scriptNum == 7 || scriptNum == 13)
@@ -414,7 +417,12 @@ namespace SchoolZenog
                             gameState = Gamestate.loading;
                             introText = "LOADING";
                             introTimer = 5000;
+                            scriptNum = 1;
                         }
+                    }
+                    if(b == 3)
+                    {
+
                     }
                 }
             }
@@ -620,7 +628,8 @@ namespace SchoolZenog
                                     fire = false;
                                     projectileX = rangerX + 30;
                                     zyHealth -= 900; //CHANGE BACK TO 300 LATER FOR FINAL CAUSE I CHANGED IT FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHH
-                                    zy.stop = 4;
+                                    if(zy.stop != 10)
+                                        zy.stop = 4;
                                 }
                             }
                         }
@@ -652,10 +661,21 @@ namespace SchoolZenog
                 }
             }
             //GAME OVER LOGIC
-            if(zy.stop == 10)
+            if(zy.stop == 10 && gameState != Gamestate.cutscene)
             {
+                volume -= (float).001;
+                MediaPlayer.Volume = volume;
                 endScreenBrightness++;
                 endScreenColor = new Color(0, 0, 0, endScreenBrightness);
+                if (endScreenBrightness > 300)
+                {
+                    b = 3;
+                    introTimer = 2000;
+                    scriptNum = 1;
+                    g = 0;
+                    gameState = Gamestate.cutscene;
+                }
+                    
             }
             if (gameState == Gamestate.end)
             {
@@ -665,7 +685,10 @@ namespace SchoolZenog
                 else
                     quitColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(quitRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+                {
                     gameState = Gamestate.home;
+                }
+                    
             }
             //END OF FRAME
             oldKB = kb;
@@ -696,9 +719,14 @@ namespace SchoolZenog
                 //ZY
                 zy.Draw(spriteBatch, destRect, zyColor);
                 //SHIELD
-                if (zy.currentAnime.Equals(Animated.blockS))
+                if (zy.currentAnime.Equals(Animated.blockS) || zy.stop == 10)
                 {
                     spriteBatch.Draw(bubbleText, bubbleRect, new Color(0, 0, 0, 155));
+                    if (zy.stop == 10)
+                    {
+                        bubbleRect.Y = 820;
+                    }
+                        
                 }
                 //PROJECTILE
                 if (rangerHealth > 0)
@@ -712,6 +740,11 @@ namespace SchoolZenog
                 spriteBatch.DrawString(tinyFont, enemiesDefeatedText, new Vector2(1500, 50), Color.Black);
                 spriteBatch.DrawString(tinyFont, scoreText, new Vector2(1555, 150), Color.Black);
                 spriteBatch.DrawString(Font1, timeText, new Vector2(1300, 50), Color.Black);
+                //GAME OVER DARKNESS
+                if(zy.stop == 10)
+                {
+                    spriteBatch.Draw(whiteText, new Rectangle(0, 0, 1920, 1080), endScreenColor);
+                }
                 //PAUSED
                 if (paused)
                 {
