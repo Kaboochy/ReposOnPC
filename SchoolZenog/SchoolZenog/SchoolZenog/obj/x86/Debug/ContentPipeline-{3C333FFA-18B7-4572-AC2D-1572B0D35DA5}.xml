@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Ranger_Sprite.xnb</Output>
-      <Time>2022-04-11T15:27:08.1065974-05:00</Time>
+      <Time>2022-05-01T09:35:04.8745507-05:00</Time>
     </Item>
     <Item>
       <Source>Rectangle.png</Source>
@@ -45,15 +45,6 @@
       <Options>None</Options>
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\White_Square.xnb</Output>
       <Time>2022-04-11T15:27:08.9353463-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Zy_Sprite.png</Source>
-      <Name>Zy_Sprite</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Zy_Sprite.xnb</Output>
-      <Time>2022-04-25T19:36:04.5894499-05:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont1.spritefont</Source>
@@ -212,6 +203,15 @@
       <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\PaintTheTownBlack.xnb</Output>
       <Extra>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\PaintTheTownBlack.wma</Extra>
       <Time>2022-04-30T21:59:59.2699236-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Zy_Sprite.png</Source>
+      <Name>Zy_Sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\victo\source\repos\SchoolZenog\SchoolZenog\SchoolZenog\bin\x86\Debug\Content\Zy_Sprite.xnb</Output>
+      <Time>2022-04-25T19:36:04.5894499-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

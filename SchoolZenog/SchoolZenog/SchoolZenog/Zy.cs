@@ -18,6 +18,7 @@ namespace SchoolZenog
         public int combo = 0;
         public bool shield = false;
         public bool ult;
+        public bool faint = false;
         public Zy(Texture2D tex)
         {
             for (int i = 0; i < 5; i++)
@@ -199,16 +200,34 @@ namespace SchoolZenog
             {
                 currentAnime = Animated.fallingL;
             }
-            if (stop == 4 && currentFrame + 1 == Number())
+            if (stop == 4 && currentFrame + 1 == Number() && destRect.Y < 750)
+            {
+                currentFrame--;
+            }
+            if (stop == 4 && currentFrame + 1 == Number() && destRect.Y >= 750)
             {
                 stop = 6;
                 currentAnime = Animated.recover;
+                if (faint)
+                    stop = 10;
             }
             if(stop == 6 && currentFrame == 6)
             {
                 stop = 0;
                 currentAnime = Animated.idle;
             }
+            //FAINT
+            if(stop == 10)
+            {
+                currentAnime = Animated.recover;
+                currentFrame = 0;
+            }
+            /* //DEBUGGING
+            Console.WriteLine("stop = " + stop);
+            Console.WriteLine("currentAnime = " + currentAnime);
+            Console.WriteLine("currentFrame = " + currentFrame);
+            Console.WriteLine("destRect.Y = " + destRect.Y);
+            */
             //frame update
             up();
             //Other

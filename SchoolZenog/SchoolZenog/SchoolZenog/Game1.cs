@@ -24,13 +24,14 @@ namespace SchoolZenog
             hudText, zyGreenText, zyBlueText, hudGray, zyGreenRText;
         bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, 
-            enemiesDefeated, score;
+            enemiesDefeated, score, endScreenBrightness;
         double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
             skipText, introText, scriptText, cutsceneText, enemiesDefeatedText, scoreText, timeText;
         float volume, a;
         Vector2 introTextVect;
-        Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor, cutsceneColor, cutsceneTextColor, nextColor;
+        Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor, 
+            cutsceneColor, cutsceneTextColor, nextColor, endScreenColor;
         Gamestate gameState, oldState;
         SpriteFont Font1, zenogFont, tinyFont;
         Song homeMusic, introMusic, gameMusic;
@@ -120,8 +121,11 @@ namespace SchoolZenog
             cutsceneTextRect = new Rectangle(0, 780, 1920, 300);
             cutsceneColor = new Color(d, d, d);
             nextColor = Color.Gray;
+            //GAME OVEr
             //Else
             frames = 0;
+            endScreenBrightness = 0;
+            endScreenColor = new Color(0,0,0, endScreenBrightness);
             oldmouse = Mouse.GetState();
             gameState = Gamestate.home;
             base.Initialize();
@@ -187,11 +191,17 @@ namespace SchoolZenog
                 MediaPlayer.Stop();
                 MediaPlayer.Play(introMusic);
             }
-            if (gameState == Gamestate.play && frames == 7)
+            if (gameState == Gamestate.play && oldState == Gamestate.home)
             {
                 MediaPlayer.Stop();
                 MediaPlayer.Play(gameMusic);
             }
+            if (gameState == Gamestate.home && oldState == Gamestate.play)
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(homeMusic);
+            }
+            oldState = gameState;
             //START SCREEN LOGIC
             if (gameState == Gamestate.home && settings == false)
             {
@@ -203,7 +213,7 @@ namespace SchoolZenog
                     startColor = new Color(100, 100, 100, 1);
                 if (mouseRect.Intersects(startRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                 {
-                    gameState = Gamestate.cutscene; //CHANGE THIS TO CUTSCENE LATER BUT THIS IS JUST FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+                    gameState = Gamestate.play; //CHANGE THIS TO CUTSCENE LATER BUT THIS IS JUST FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
                 }
                 //SETTINGS
                 if (mouseRect.Intersects(settingsRect))
@@ -485,7 +495,16 @@ namespace SchoolZenog
                     //STOP 0 = Movement and idle
                     //STOP 1 = Attacking
                     //STOP 2 = Jumping
-                    if (zy.stop != 1 && zy.stop != 3 && zy.stop != 6 && zy.stop != 4)
+
+                    //FALLING LOGIC
+                    if (zy.stop == 4 && destRect.Y < 750)
+                    {
+                        x -= 1;
+                        destRect.Y -= (int)(-1 * Math.Pow(.175 * x, 2) + 5);
+                        if (destRect.Y > 750)
+                            destRect.Y = 750;
+                    }
+                    if (zy.stop != 1 && zy.stop != 3 && zy.stop != 6 && zy.stop != 4 && zy.stop != 10)
                     {
                         //RIGHT
                         if (kb.IsKeyDown(Keys.D) && !kb.IsKeyDown(Keys.A))
@@ -600,7 +619,7 @@ namespace SchoolZenog
                                 {
                                     fire = false;
                                     projectileX = rangerX + 30;
-                                    zyHealth -= 300;
+                                    zyHealth -= 900; //CHANGE BACK TO 300 LATER FOR FINAL CAUSE I CHANGED IT FOR TESTING AHHHHHHHHHHHHHHHHHHHHHHH
                                     zy.stop = 4;
                                 }
                             }
@@ -611,23 +630,46 @@ namespace SchoolZenog
                             projectileTimer++;
                         }
                     }
+                    //GAME ENDING
+                    if (zyHealth <= 0)
+                    {
+                        zy.faint = true;
+                    }
+                    else
+                    {
+                        //HUD UPDATES
+                        timeText = "" + frames / 60;
+                        if (frames % 600 == 0 && frames > 599)
+                        {
+                            if (zyHealth == 1920)
+                                score += 50;
+                            else
+                                score += 10;
+                        }
+                        //if an enemy is defeated, add 50 to the score
+                        scoreText = "Score: " + score;
+                    }
                 }
             }
-            //HUD UPDATES
-            timeText = ""+frames / 60;
-            if(frames%600==0 && frames>599)
+            //GAME OVER LOGIC
+            if(zy.stop == 10)
             {
-                if (zyHealth == 1920)
-                    score += 50;
-                else
-                    score += 10;
+                endScreenBrightness++;
+                endScreenColor = new Color(0, 0, 0, endScreenBrightness);
             }
-            //if an enemy is defeated, add 50 to the score
-            scoreText = "Score: " + score;
+            if (gameState == Gamestate.end)
+            {
+                //QUIT
+                if (mouseRect.Intersects(quitRect))
+                    quitColor = new Color(50, 50, 50, 1);
+                else
+                    quitColor = new Color(100, 100, 100, 1);
+                if (mouseRect.Intersects(quitRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+                    gameState = Gamestate.home;
+            }
             //END OF FRAME
             oldKB = kb;
             oldmouse = mouse;
-            oldState = gameState;
             if (frames % 7 == 0)
                 zy.Update(kb, mouse, destRect);
             base.Update(gameTime);
@@ -643,7 +685,7 @@ namespace SchoolZenog
                 //BACKGROUND
                 spriteBatch.Draw(backgroundText, backgroundDestRect, backgroundSourceRect, Color.White);
                 //HITBOX
-                //zy.DrawHitbox(spriteBatch, destRect, whiteText);
+                zy.DrawHitbox(spriteBatch, destRect, whiteText);
 
                 //ranger ENEMY
                 if (rangerHealth > 0)
@@ -753,6 +795,14 @@ namespace SchoolZenog
                     if (introTimer > 2300)
                         spriteBatch.DrawString(tinyFont, skipText, new Vector2(1600, 800), nextColor);
                 }
+            }
+            //GAME OVER
+            if(gameState == Gamestate.end)
+            {
+                //QUIT BOX
+                spriteBatch.Draw(whiteText, quitRect, quitColor);
+                spriteBatch.DrawString(Font1, quitText, new Vector2(865, 850), Color.Black);
+                spriteBatch.Draw(blackText, quitRect, Color.White);
             }
             //LOADING
             if (gameState == Gamestate.loading)

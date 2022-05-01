@@ -3,7 +3,6 @@ Content\Rectangle.xnb
 Content\Start_Screen.xnb
 Content\TestBackground.xnb
 Content\White_Square.xnb
-Content\Zy_Sprite.xnb
 Content\SpriteFont1.xnb
 Content\zenogFont.xnb
 Content\tinyFont.xnb
@@ -21,6 +20,7 @@ Content\zenogHudHLarge.xnb
 Content\zenogHudHSmall.xnb
 Content\BackAlleyBusiness.xnb
 Content\PaintTheTownBlack.xnb
+Content\Zy_Sprite.xnb
 Content\Sarabande_Full_Mix.wma
 Content\Odd_Exploitation_Synth_Stem.wma
 Content\Odd_Exploitation_Full_Mix.wma
