@@ -21,13 +21,14 @@ namespace SchoolZenog
             rangerGreen, startRect, settingsRect, quitRect, mouseRect,
             volumeBar, volumeSlider, backRect, skipRect, bubbleRect, cutsceneTextRect, zyGreenRect, zyBlueRect;
         Texture2D zyText, backgroundText, rangerText, blackText, whiteText, art, cutscene1, cutscene2, bubbleText,
-            hudText, zyGreenText, zyBlueText, hudGray, zyGreenRText;
+            hudText, zyGreenText, zyBlueText, hudGray, zyGreenRText, logo;
         bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, 
             enemiesDefeated, score, endScreenBrightness, quitTimer;
         double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
-            skipText, introText, scriptText, cutsceneText, enemiesDefeatedText, scoreText, timeText, finalText;
+            skipText, introText, scriptText, cutsceneText, enemiesDefeatedText, scoreText, 
+            timeText, finalScript, finalText;
         float volume, a;
         Vector2 introTextVect;
         Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor, 
@@ -111,9 +112,10 @@ namespace SchoolZenog
             introTimer = 0;
             b = 0;
             introTextVect = new Vector2(600, 500);
-            //CUTSCENE 1
+            //CUTSCENES
             scriptNum = 1;
             cutsceneText = "";
+            finalText = "";
             g = 0;
             d = 0;
             a = 1f;
@@ -124,7 +126,7 @@ namespace SchoolZenog
             //Else
             frames = 0;
             endScreenBrightness = 0;
-            finalText = "";
+            finalScript = "";
             quitTimer = 0;
             endScreenColor = new Color(0,0,0, endScreenBrightness);
             oldmouse = Mouse.GetState();
@@ -150,6 +152,7 @@ namespace SchoolZenog
             zyGreenRText = Content.Load<Texture2D>("zenogHudHSmall");
             hudGray = Content.Load<Texture2D>("zenogHudG");
             hudText = Content.Load<Texture2D>("zenogHud");
+            logo = Content.Load<Texture2D>("logo");
 
             //MUSIC
             homeMusic = Content.Load<Song>("PaintTheTownBlack"); //OLD ("Sarabande_Full_Mix"); 
@@ -688,45 +691,31 @@ namespace SchoolZenog
             if (gameState == Gamestate.end)
             {
                 quitTimer++;
-                if (quitTimer > 100)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n";
-                if (quitTimer > 300)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
-                                "She told him that he was carried out by another cloaked man\n";
+                if (quitTimer % 300 == 0 && quitTimer < 1900)
+                    g = 0;
+                if (quitTimer < 10)
+                {
+                    finalScript = " Zy woke up outside the portal with Nomi kneeling by his side\n";
+                    g = 0;
+                }  
+                if (quitTimer > 100 && quitTimer % 2 == 0 && g < finalScript.Length && quitTimer < 2000)
+                {
+                    finalText = finalText + char.ToString(finalScript[g]);
+                    g++;
+                }
+                if(quitTimer > 300)
+                    finalScript = " She told him that he was carried out by another cloaked man\n";
                 if (quitTimer > 600)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
-                                "She told him that he was carried out by another cloaked man\n" +
-                                "The man told her before he left that they should not be fighting eachother\n";
+                    finalScript = " The man told her before he left that they should not be fighting\n";
                 if (quitTimer > 900)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
-                                "She told him that he was carried out by another cloaked man\n" +
-                                "The man told her before he left that they should not be fighting eachother\n" +
-                                "He told her that her enemy was not THEY that appeared\n";
+                    finalScript = " He told her that the enemy was not THEY that appeared\n";
                 if (quitTimer > 1200)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
-                                "She told him that he was carried out by another cloaked man\n" +
-                                "The man told her before he left that they should not be fighting eachother\n" +
-                                "He told her that her enemy was not THEY that appeared\n" +
-                                "Rather the enemy was those who locked them away for 200 years\n";
+                    finalScript = " Rather the enemy is those who locked them away for 200 years\n";
                 if (quitTimer > 1500)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
-                                "She told him that he was carried out by another cloaked man\n" +
-                                "The man told her before he left that they should not be fighting eachother\n" +
-                                "He told her that her enemy was not THEY that appeared\n" +
-                                "Rather the enemy is those who locked them away for 200 years\n" +
-                                "The enemy is within";
+                    finalScript = " The enemy is within\n\n\n";
                 if (quitTimer > 1800)
-                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
-                                "She told him that he was carried out by another cloaked man\n" +
-                                "The man told her before he left that they should not be fighting eachother\n" +
-                                "He told her that her enemy was not THEY that appeared\n" +
-                                "Rather the enemy is those who locked them away for 200 years\n" +
-                                "The enemy is within\n\n\n" +
-                                "Mission Stats\n" +
-                                "Clock: "+timeText+" seconds\n" +
-                                "Score:"+scoreText;
-                //QUIT
-                if (quitTimer > 1800)
+                    finalScript = " Mission Stats\n Clock: " + timeText + " seconds\n" + " " + scoreText;
+                if (quitTimer > 2000)
                 {
                     if (mouseRect.Intersects(quitRect))
                         quitColor = new Color(50, 50, 50, 1);
@@ -734,7 +723,7 @@ namespace SchoolZenog
                         quitColor = new Color(100, 100, 100, 1);
                     if (mouseRect.Intersects(quitRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
                     {
-                        gameState = Gamestate.home;
+                        Exit(); //CHANGE TO --> gameState = Gamestate.home; <-- if you want to return to menu instead of close game
                     }
                 } 
                 else
@@ -837,7 +826,8 @@ namespace SchoolZenog
                 spriteBatch.DrawString(Font1, quitText, new Vector2(865, 850), Color.Black);
                 spriteBatch.Draw(blackText, quitRect, Color.White);
                 //LOGO
-                spriteBatch.DrawString(zenogFont, zenogText, new Vector2(690, 80), Color.White);
+                //spriteBatch.DrawString(zenogFont, zenogText, new Vector2(690, 80), Color.White);
+                spriteBatch.Draw(logo, new Rectangle(690,10,500,500), Color.White);
             }
             //SETTINGS
             if (settings)
