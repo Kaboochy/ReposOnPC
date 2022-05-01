@@ -24,10 +24,10 @@ namespace SchoolZenog
             hudText, zyGreenText, zyBlueText, hudGray, zyGreenRText;
         bool fire, projectileTimerBool, paused, settings;
         int frames, projectileTimer, rangerHealth, zyHealth, zyShield, introTimer, r, g, b, d, scriptNum, 
-            enemiesDefeated, score, endScreenBrightness;
+            enemiesDefeated, score, endScreenBrightness, quitTimer;
         double backX, rangerX, projectileX, x;
         string startText, zenogText, settingsText, quitText, volumeText, backText,
-            skipText, introText, scriptText, cutsceneText, enemiesDefeatedText, scoreText, timeText;
+            skipText, introText, scriptText, cutsceneText, enemiesDefeatedText, scoreText, timeText, finalText;
         float volume, a;
         Vector2 introTextVect;
         Color rangerColor, zyColor, startColor, settingsColor, quitColor, introTextColor, 
@@ -121,10 +121,11 @@ namespace SchoolZenog
             cutsceneTextRect = new Rectangle(0, 780, 1920, 300);
             cutsceneColor = new Color(d, d, d);
             nextColor = Color.Gray;
-            //GAME OVEr
             //Else
             frames = 0;
             endScreenBrightness = 0;
+            finalText = "";
+            quitTimer = 0;
             endScreenColor = new Color(0,0,0, endScreenBrightness);
             oldmouse = Mouse.GetState();
             gameState = Gamestate.home;
@@ -185,6 +186,22 @@ namespace SchoolZenog
             mouseRect.Y = mouse.Y;
             zyGreenRect.Width = zyHealth;
             zyBlueRect.Width = zyShield;
+            //JACOB H THINGY
+            if (kb.IsKeyDown(Keys.H) && oldKB.IsKeyUp(Keys.H))
+            {
+                if (graphics.PreferredBackBufferWidth == 500)
+                {
+                    graphics.PreferredBackBufferWidth = 1920;
+                    graphics.PreferredBackBufferHeight = 1080;
+                    graphics.ApplyChanges();
+                }
+                else
+                {
+                    graphics.PreferredBackBufferWidth = 500;
+                    graphics.PreferredBackBufferHeight = 500;
+                    graphics.ApplyChanges();
+                }
+            }
             //GAMESTATES
             if (gameState == Gamestate.cutscene && introTimer == 1)
             {
@@ -314,8 +331,6 @@ namespace SchoolZenog
                         scriptText = " Zy: Have any enemies reached the walls yet?";
                     if(b==2 && scriptNum == 1)
                         scriptText = " Nomi: Now we just have to wait and \n       take them down as they come out";
-                    if (b == 3 && scriptNum == 1)
-                        scriptText = " Zy: HOW MANY DUDES CAN YOU FIT IN YOUR \n ASS AT ONCE";
                      //DEBUGGING STUFF
                     Console.WriteLine("scriptNum = "+scriptNum);
                     Console.WriteLine("d = "+d);
@@ -419,10 +434,6 @@ namespace SchoolZenog
                             introTimer = 5000;
                             scriptNum = 1;
                         }
-                    }
-                    if(b == 3)
-                    {
-
                     }
                 }
             }
@@ -661,7 +672,7 @@ namespace SchoolZenog
                 }
             }
             //GAME OVER LOGIC
-            if(zy.stop == 10 && gameState != Gamestate.cutscene)
+            if(zy.stop == 10 && gameState != Gamestate.end)
             {
                 volume -= (float).001;
                 MediaPlayer.Volume = volume;
@@ -669,24 +680,66 @@ namespace SchoolZenog
                 endScreenColor = new Color(0, 0, 0, endScreenBrightness);
                 if (endScreenBrightness > 300)
                 {
-                    b = 3;
-                    introTimer = 2000;
-                    scriptNum = 1;
-                    g = 0;
-                    gameState = Gamestate.cutscene;
+                    zy.stop = 0;
+                    gameState = Gamestate.end;
                 }
                     
             }
             if (gameState == Gamestate.end)
             {
+                quitTimer++;
+                if (quitTimer > 100)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n";
+                if (quitTimer > 300)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
+                                "She told him that he was carried out by another cloaked man\n";
+                if (quitTimer > 600)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
+                                "She told him that he was carried out by another cloaked man\n" +
+                                "The man told her before he left that they should not be fighting eachother\n";
+                if (quitTimer > 900)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
+                                "She told him that he was carried out by another cloaked man\n" +
+                                "The man told her before he left that they should not be fighting eachother\n" +
+                                "He told her that her enemy was not THEY that appeared\n";
+                if (quitTimer > 1200)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
+                                "She told him that he was carried out by another cloaked man\n" +
+                                "The man told her before he left that they should not be fighting eachother\n" +
+                                "He told her that her enemy was not THEY that appeared\n" +
+                                "Rather the enemy was those who locked them away for 200 years\n";
+                if (quitTimer > 1500)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
+                                "She told him that he was carried out by another cloaked man\n" +
+                                "The man told her before he left that they should not be fighting eachother\n" +
+                                "He told her that her enemy was not THEY that appeared\n" +
+                                "Rather the enemy is those who locked them away for 200 years\n" +
+                                "The enemy is within";
+                if (quitTimer > 1800)
+                    finalText = "Zy woke up outside the portal with Nomi kneeling by his side\n" +
+                                "She told him that he was carried out by another cloaked man\n" +
+                                "The man told her before he left that they should not be fighting eachother\n" +
+                                "He told her that her enemy was not THEY that appeared\n" +
+                                "Rather the enemy is those who locked them away for 200 years\n" +
+                                "The enemy is within\n\n\n" +
+                                "Mission Stats\n" +
+                                "Clock: "+timeText+" seconds\n" +
+                                "Score:"+scoreText;
                 //QUIT
-                if (mouseRect.Intersects(quitRect))
-                    quitColor = new Color(50, 50, 50, 1);
-                else
-                    quitColor = new Color(100, 100, 100, 1);
-                if (mouseRect.Intersects(quitRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+                if (quitTimer > 1800)
                 {
-                    gameState = Gamestate.home;
+                    if (mouseRect.Intersects(quitRect))
+                        quitColor = new Color(50, 50, 50, 1);
+                    else
+                        quitColor = new Color(100, 100, 100, 1);
+                    if (mouseRect.Intersects(quitRect) && mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+                    {
+                        gameState = Gamestate.home;
+                    }
+                } 
+                else
+                {
+                    quitColor = new Color(0,0,0,0);
                 }
                     
             }
@@ -832,6 +885,8 @@ namespace SchoolZenog
             //GAME OVER
             if(gameState == Gamestate.end)
             {
+                //FINAL TEXT
+                spriteBatch.DrawString(tinyFont, finalText, new Vector2(50, 100), Color.White);
                 //QUIT BOX
                 spriteBatch.Draw(whiteText, quitRect, quitColor);
                 spriteBatch.DrawString(Font1, quitText, new Vector2(865, 850), Color.Black);
